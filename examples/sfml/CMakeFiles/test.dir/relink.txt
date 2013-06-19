@@ -1,0 +1,1 @@
+/usr/bin/c++   -g    CMakeFiles/test.dir/main.cpp.o  -o CMakeFiles/CMakeRelink.dir/test -rdynamic /home/t0m/dev/sbrts/src/lib/libsfml-system.so /home/t0m/dev/sbrts/src/lib/libsfml-window.so /home/t0m/dev/sbrts/src/lib/libsfml-graphics.so /home/t0m/dev/sbrts/src/lib/libsfml-network.so /home/t0m/dev/sbrts/src/lib/libsfml-audio.so 
