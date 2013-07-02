@@ -15,6 +15,10 @@ iostream
 -
 SFML/Graphics.hpp
 -
+list
+-
+sys/sysinfo.h
+/home/t0m/dev/sbrts/src/sys/sysinfo.h
 
 src/include/SFML/Config.hpp
 

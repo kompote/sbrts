@@ -1,1 +1,1 @@
-/usr/bin/c++   -g    CMakeFiles/sbrts.dir/src/main.cpp.o  -o sbrts -rdynamic src/lib/libsfml-system.so src/lib/libsfml-window.so src/lib/libsfml-graphics.so src/lib/libsfml-network.so src/lib/libsfml-audio.so -Wl,-rpath,/home/t0m/dev/sbrts/src/lib: 
+/usr/bin/c++   -std=c++0x -g    CMakeFiles/sbrts.dir/src/main.cpp.o  -o sbrts -rdynamic src/lib/libsfml-system.so src/lib/libsfml-window.so src/lib/libsfml-graphics.so src/lib/libsfml-network.so src/lib/libsfml-audio.so -Wl,-rpath,/home/t0m/dev/sbrts/src/lib: 

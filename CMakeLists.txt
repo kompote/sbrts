@@ -4,6 +4,7 @@ project(sbrts)
 set(CMAKE_PREFIX_PATH "./src")
 set(PROJECT_SOURCE_DIR "./src")
 set(PROJECT_BINARY_DIR "./bin")
+SET(CMAKE_CXX_FLAGS "-std=c++0x")
 # Enable debug symbols by default
 if(CMAKE_BUILD_TYPE STREQUAL "")
     set(CMAKE_BUILD_TYPE Debug)
