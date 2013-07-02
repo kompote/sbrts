@@ -16,3 +16,4 @@
 sbrts
 *.cmake
 CMakeCache.txt
+CMakeFiles
