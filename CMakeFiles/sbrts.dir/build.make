@@ -97,6 +97,28 @@ sbrts: CMakeFiles/sbrts.dir/link.txt
 CMakeFiles/sbrts.dir/build: sbrts
 .PHONY : CMakeFiles/sbrts.dir/build
 
+# Object files for target sbrts
+sbrts_OBJECTS = \
+"CMakeFiles/sbrts.dir/src/main.cpp.o"
+
+# External object files for target sbrts
+sbrts_EXTERNAL_OBJECTS =
+
+CMakeFiles/CMakeRelink.dir/sbrts: CMakeFiles/sbrts.dir/src/main.cpp.o
+CMakeFiles/CMakeRelink.dir/sbrts: CMakeFiles/sbrts.dir/build.make
+CMakeFiles/CMakeRelink.dir/sbrts: src/lib/libsfml-system.so
+CMakeFiles/CMakeRelink.dir/sbrts: src/lib/libsfml-window.so
+CMakeFiles/CMakeRelink.dir/sbrts: src/lib/libsfml-graphics.so
+CMakeFiles/CMakeRelink.dir/sbrts: src/lib/libsfml-network.so
+CMakeFiles/CMakeRelink.dir/sbrts: src/lib/libsfml-audio.so
+CMakeFiles/CMakeRelink.dir/sbrts: CMakeFiles/sbrts.dir/relink.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable CMakeFiles/CMakeRelink.dir/sbrts"
+	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/sbrts.dir/relink.txt --verbose=$(VERBOSE)
+
+# Rule to relink during preinstall.
+CMakeFiles/sbrts.dir/preinstall: CMakeFiles/CMakeRelink.dir/sbrts
+.PHONY : CMakeFiles/sbrts.dir/preinstall
+
 CMakeFiles/sbrts.dir/requires: CMakeFiles/sbrts.dir/src/main.cpp.o.requires
 .PHONY : CMakeFiles/sbrts.dir/requires
 

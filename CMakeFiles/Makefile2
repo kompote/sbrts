@@ -81,6 +81,15 @@ CMakeFiles/sbrts.dir/rule: cmake_check_build_system
 sbrts: CMakeFiles/sbrts.dir/rule
 .PHONY : sbrts
 
+# Pre-install relink rule for target.
+CMakeFiles/sbrts.dir/preinstall:
+	$(MAKE) -f CMakeFiles/sbrts.dir/build.make CMakeFiles/sbrts.dir/preinstall
+.PHONY : CMakeFiles/sbrts.dir/preinstall
+
+# Prepare target for install.
+preinstall: CMakeFiles/sbrts.dir/preinstall
+.PHONY : preinstall
+
 # clean rule for target.
 CMakeFiles/sbrts.dir/clean:
 	$(MAKE) -f CMakeFiles/sbrts.dir/build.make CMakeFiles/sbrts.dir/clean
