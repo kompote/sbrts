@@ -10,16 +10,16 @@ INCLUDE_DIRECTORIES("include/")
 
 LINK_DIRECTORIES("lib/")
 
-#ADD_EXECUTABLE(
-#       main
-#      	main.cpp
-#)
-
 ADD_EXECUTABLE(
-        main_martial_fps
-       	main_martial_fps.cpp
+       main
+      	main.cpp
 )
 
-#target_link_libraries (main sfml-graphics sfml-window sfml-system)
-target_link_libraries (main_martial_fps sfml-graphics sfml-window sfml-system)
+#ADD_EXECUTABLE(
+#        main_martial_fps
+#       	main_martial_fps.cpp
+#)
+
+target_link_libraries (main sfml-graphics sfml-window sfml-system)
+#target_link_libraries (main_martial_fps sfml-graphics sfml-window sfml-system)
 
