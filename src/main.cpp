@@ -1,4 +1,4 @@
-#include "config.h"
+
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include <list>
@@ -7,7 +7,7 @@ using namespace std;
 
 int main()
 {
-    cout << "Version " << sbrts_VERSION_MAJOR << "." << sbrts_VERSION_MINOR << endl;
+    /* cout << "Version " << sbrts_VERSION_MAJOR << "." << sbrts_VERSION_MINOR << endl; */
     sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
     sf::CircleShape shape(100.f);
     shape.setFillColor(sf::Color::Green);
