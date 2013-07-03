@@ -7,8 +7,12 @@ int main()
 {
     int fps = 60;
     
-    // old sfml tutorial sample code to draw a circle
+    // sfml stuff to open a window
     sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
+    window.setVerticalSyncEnabled(true);
+      
+      
+    // old sfml tutorial sample code to draw a circle
     sf::CircleShape shape(100.f);
     shape.setFillColor(sf::Color::Green);
 
@@ -60,3 +64,4 @@ int main()
 
     return EXIT_SUCCESS;
 }
+
