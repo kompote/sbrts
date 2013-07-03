@@ -1,2 +1,0 @@
-#define sbrts_VERSION_MAJOR @sbrts_VERSION_MAJOR@
-#define sbrts_VERSION_MINOR @sbrts_VERSION_MINOR@
