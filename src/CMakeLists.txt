@@ -8,7 +8,8 @@ SET(COMMON_WARNING_FLAGS "-Wall -Wextra -Wwrite-strings -Wshadow -Winit-self")
 INCLUDE_DIRECTORIES(".")
 INCLUDE_DIRECTORIES("include/")
 
-LINK_DIRECTORIES("lib/")
+
+LINK_DIRECTORIES("${CMAKE_SOURCE_DIR}/lib/")
 
 ADD_EXECUTABLE(
        main
