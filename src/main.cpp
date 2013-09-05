@@ -3,13 +3,21 @@
 #include <SFML/Graphics.hpp>
 #include <list>
 #include "sys/sysinfo.h"
+
+#include "Map.h"
 using namespace std;
+
+// global vars
+sf::RenderWindow mainWindow(sf::VideoMode(800, 600), "SBRTS");    // global main window
+Map theMap;
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
-    sf::CircleShape shape(100.f);
-    shape.setFillColor(sf::Color::Green);
+
+//    sf::CircleShape shape(100.f);
+//    shape.setFillColor(sf::Color::Green);
+
+
     // fps control
     sf::Clock clock;
     std::list<sf::Time> frameTime;
@@ -23,24 +31,24 @@ int main()
     struct sysinfo memInfo;
     long long physMemUsed = memInfo.totalram - memInfo.freeram;
 
-    while (window.isOpen())
+    while (mainWindow.isOpen())
     {
         // keep real frame time
         frameTime.push_back(clock.restart());
         // Event management
         // TODO: A Threader
         sf::Event event;
-        while (window.pollEvent(event))
+        while (mainWindow.pollEvent(event))
         {
             if (event.type == sf::Event::Closed)
-                window.close();
+                mainWindow.close();
         }
         // Clear display
-        window.clear();
+        mainWindow.clear();
         // Draw something
         // TODO: a threader, migrer au manager
-        window.draw(shape);
-
+    //    mainWindow.draw(shape);
+theMap.Redraw(mainWindow);
         // calcul et ajuste fps
         elapsed = clock.getElapsedTime();
         ++framecount;
@@ -50,7 +58,7 @@ int main()
             sf::sleep( frameDuration - elapsed );
         }
         // on display apres le sleep, que le thread compute profite du temps restant
-        window.display();
+        mainWindow.display();
 
         // fps display toutes les 60 frames
         if (framecount > 30)

@@ -7,20 +7,32 @@ SET(COMMON_WARNING_FLAGS "-Wall -Wextra -Wwrite-strings -Wshadow -Winit-self")
 
 INCLUDE_DIRECTORIES(".")
 INCLUDE_DIRECTORIES("include/")
+INCLUDE_DIRECTORIES("engine/")
 
 
 LINK_DIRECTORIES("${CMAKE_SOURCE_DIR}/lib/")
+#LINK_DIRECTORIES("${CMAKE_SOURCE_DIR}/engine/")
+#LINK_DIRECTORIES("${CMAKE_SOURCE_DIR}/core/")
+
+file(
+
+    GLOB_RECURSE
+
+    source_files
+
+    engine/*.cpp
+    core/*.cpp
+    engine/*.h
+    core/*.h
+
+    )
 
 ADD_EXECUTABLE(
-       main
-      	main.cpp
+    Main
+    main.cpp
+    ${source_files}
 )
 
-#ADD_EXECUTABLE(
-#        main_martial_fps
-#       	main_martial_fps.cpp
-#)
-
-target_link_libraries (main sfml-graphics sfml-window sfml-system)
+target_link_libraries (Main sfml-graphics sfml-window sfml-system)
 #target_link_libraries (main_martial_fps sfml-graphics sfml-window sfml-system)
 
