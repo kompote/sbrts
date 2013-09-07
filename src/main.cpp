@@ -1,46 +1,40 @@
-
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include <list>
 #include "sys/sysinfo.h"
-
-#include "Map.h"
 
 #include "advMap.h"
 using namespace std;
 
 // global vars
 sf::RenderWindow mainWindow(sf::VideoMode(800, 600), "SBRTS");    // global main window
-//Map theMap;
 AdvMap theMap;
+
+float getFPS(const sf::Time& time) {
+         return (1000000.0f / time.asMicroseconds());
+}
+//float targetFPS = 60.0;
+//float targetFrameTime = targetFPS*1000000.0f;
 int main()
 {
-
-//    sf::CircleShape shape(100.f);
-//    shape.setFillColor(sf::Color::Green);
-
-
     // fps control
-    sf::Clock clock;
-    std::list<sf::Time> frameTime;
+    sf::Clock FPSClock;
+    float fps;  
+    std::list<float> frameTime;
     unsigned int framecount = 0;
-    unsigned int fps = 60;
-    sf::Time elapsed;
-    sf::Time frameDuration = sf::seconds(1/(double)(fps));
-
-    // system info stuff
-    // doesnt work, useless, but for futur... maybe
-    //struct sysinfo memInfo;
-    //long long physMemUsed = memInfo.totalram - memInfo.freeram;
+    // Debug stuff
+    // TODO : Utility class
+    sf::Font _DebugFont;
+    _DebugFont.loadFromFile("resources/Aero.ttf");
+    sf::Text _DebugFPS("fps", _DebugFont,12);
+    _DebugFPS.setPosition(750.0,5.0);
 
     theMap.loadMap("map01");
 
     while (mainWindow.isOpen())
     {
         // keep real frame time
-        frameTime.push_back(clock.restart());
         // Event management
-        // TODO: A Threader
         sf::Event event;
         while (mainWindow.pollEvent(event))
         {
@@ -50,29 +44,28 @@ int main()
         // Clear display
         mainWindow.clear(sf::Color(0, 240, 255));
         // Draw something
-        // TODO: a threader, migrer au manager
-    //    mainWindow.draw(shape);
-theMap.redraw(mainWindow);
-        // calcul et ajuste fps
-        elapsed = clock.getElapsedTime();
+        theMap.redraw(mainWindow);
+        mainWindow.draw(_DebugFPS);
+        
         ++framecount;
-        // du temps en plus
-        if( elapsed < frameDuration ){
-            // sleep until frameDuration reached
-            sf::sleep( frameDuration - elapsed );
-        }
-        // on display apres le sleep, que le thread compute profite du temps restant
+        
         mainWindow.display();
-
+        
+        frameTime.push_back(getFPS(FPSClock.restart()));
+        //no limit
+        //if(fps > targetFPS)
+        //    sf::sleep( sf::microseconds(targetFrameTime - fps*1000000.0f) );
+        
         // fps display toutes les 60 frames
         if (framecount > 30)
         {
-            sf::Time tmp;
+            //sf::Time tmp;
+            float tmp;
             // moyenne
             for (const auto &it : frameTime)
                 tmp += it;
             tmp = tmp/(float)30;
-            cout<<flush<< "\r FrameRate : " << int(1/tmp.asSeconds()) << "fps"; //     Memory : " << physMemUsed << "Mb   ";
+            _DebugFPS.setString(sf::String(to_string((int)tmp) + " fps")) ;   
             frameTime.clear();
             framecount=0;
         }
