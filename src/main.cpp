@@ -5,12 +5,14 @@
 #include "sys/sysinfo.h"
 
 #include "Map.h"
+
+#include "advMap.h"
 using namespace std;
 
 // global vars
 sf::RenderWindow mainWindow(sf::VideoMode(800, 600), "SBRTS");    // global main window
-Map theMap;
-
+//Map theMap;
+AdvMap theMap;
 int main()
 {
 
@@ -28,8 +30,10 @@ int main()
 
     // system info stuff
     // doesnt work, useless, but for futur... maybe
-    struct sysinfo memInfo;
-    long long physMemUsed = memInfo.totalram - memInfo.freeram;
+    //struct sysinfo memInfo;
+    //long long physMemUsed = memInfo.totalram - memInfo.freeram;
+
+    theMap.loadMap("map01");
 
     while (mainWindow.isOpen())
     {
@@ -44,11 +48,11 @@ int main()
                 mainWindow.close();
         }
         // Clear display
-        mainWindow.clear();
+        mainWindow.clear(sf::Color(0, 240, 255));
         // Draw something
         // TODO: a threader, migrer au manager
     //    mainWindow.draw(shape);
-theMap.Redraw(mainWindow);
+theMap.redraw(mainWindow);
         // calcul et ajuste fps
         elapsed = clock.getElapsedTime();
         ++framecount;
@@ -68,7 +72,7 @@ theMap.Redraw(mainWindow);
             for (const auto &it : frameTime)
                 tmp += it;
             tmp = tmp/(float)30;
-            cout<<flush<< "\r FrameRate : " << int(1/tmp.asSeconds()) << "fps     Memory : " << physMemUsed << "Mb   ";
+            cout<<flush<< "\r FrameRate : " << int(1/tmp.asSeconds()) << "fps"; //     Memory : " << physMemUsed << "Mb   ";
             frameTime.clear();
             framecount=0;
         }
