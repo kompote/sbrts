@@ -10,6 +10,15 @@ using namespace std;
 sf::RenderWindow mainWindow(sf::VideoMode(800, 600), "SBRTS");    // global main window
 AdvMap theMap;
 
+bool bfullscreen = false;
+void toggleFullscreen() {
+    if (!bfullscreen)
+        mainWindow.create(VideoMode::getDesktopMode(),"SBRTS");
+    else
+        mainWindow.create(sf::VideoMode(800,600),"SBRTS");
+    bfullscreen = !bfullscreen;
+    
+}
 float getFPS(const sf::Time& time) {
          return (1000000.0f / time.asMicroseconds());
 }
@@ -30,6 +39,12 @@ int main()
     _DebugFPS.setPosition(750.0,5.0);
 
     theMap.loadMap("map01");
+    sf::Sprite mapSprite;
+   
+   // map texture offscreen 
+    sf::RenderTexture rt;
+    rt.create(1800,1600);
+    int mapPosX = 0, mapPosY = 0;
 
     while (mainWindow.isOpen())
     {
@@ -38,13 +53,57 @@ int main()
         sf::Event event;
         while (mainWindow.pollEvent(event))
         {
-            if (event.type == sf::Event::Closed)
-                mainWindow.close();
+            switch(event.type)
+            {
+                case sf::Event::Closed:
+                    mainWindow.close();
+                    break;
+                case sf::Event::KeyPressed:
+                    switch(event.key.code)
+                    {
+                            case sf::Keyboard::F:
+                                toggleFullscreen();
+                                break;
+                            case sf::Keyboard::Q:
+                                mainWindow.close();
+                                break;
+                            case sf::Keyboard::Up:
+                                if (mapPosY<597)
+                                    mapPosY +=3;
+                                break;
+                            case sf::Keyboard::Down:
+                                if (mapPosY>3)
+                                    mapPosY -=3;
+                                break;
+                            case sf::Keyboard::Left:
+                                if (mapPosX<770)
+                                    mapPosX +=3;
+                                break;
+                            case sf::Keyboard::Right:
+                                if (mapPosX>3)
+                                    mapPosX -=3;
+                                break;
+                            default:
+                                break;
+                    }
+                    break;
+            }
         }
+
+        // render map
+        rt.clear(sf::Color(20,20,20));
+        theMap.redraw(rt);
+        rt.draw(sf::Text("toto",_DebugFont,12)); // if not, bug ??
+        rt.display();
         // Clear display
-        mainWindow.clear(sf::Color(0, 240, 255));
-        // Draw something
-        theMap.redraw(mainWindow);
+        mainWindow.clear(sf::Color(0, 140, 155));
+        // dram map, just a part
+        // TODO : fulscreen
+        mapSprite.setTexture(rt.getTexture());
+        mapSprite.setTextureRect(sf::IntRect(mapPosX,mapPosY,800,500));
+        mainWindow.draw(mapSprite);
+
+        // draw fps text
         mainWindow.draw(_DebugFPS);
         
         ++framecount;
