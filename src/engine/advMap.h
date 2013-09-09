@@ -14,7 +14,7 @@ class AdvMap
         void redraw(RenderTarget&);
     private:
 
-    std::vector<std::vector<sf::Vector2i>> m_map;
+    std::vector<std::vector<sf::Vector2i> > m_map;
     sf::Sprite m_tiles;
     sf::Texture tileTexture;
 

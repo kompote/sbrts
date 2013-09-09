@@ -3,7 +3,7 @@
 #include <list>
 #include "sys/sysinfo.h"
 
-#include "advMap.h"
+#include "engine/advMap.h"
 using namespace std;
 
 // global vars
@@ -17,7 +17,7 @@ void toggleFullscreen() {
     else
         mainWindow.create(sf::VideoMode(800,600),"SBRTS");
     bfullscreen = !bfullscreen;
-    
+
 }
 float getFPS(const sf::Time& time) {
          return (1000000.0f / time.asMicroseconds());
@@ -28,7 +28,7 @@ int main()
 {
     // fps control
     sf::Clock FPSClock;
-    float fps;  
+//    float fps;
     std::list<float> frameTime;
     unsigned int framecount = 0;
     // Debug stuff
@@ -40,8 +40,8 @@ int main()
 
     theMap.loadMap("map01");
     sf::Sprite mapSprite;
-   
-   // map texture offscreen 
+
+   // map texture offscreen
     sf::RenderTexture rt;
     rt.create(1800,1600);
     int mapPosX = 0, mapPosY = 0;
@@ -105,16 +105,16 @@ int main()
 
         // draw fps text
         mainWindow.draw(_DebugFPS);
-        
+
         ++framecount;
-        
+
         mainWindow.display();
-        
+
         frameTime.push_back(getFPS(FPSClock.restart()));
         //no limit
         //if(fps > targetFPS)
         //    sf::sleep( sf::microseconds(targetFrameTime - fps*1000000.0f) );
-        
+
         // fps display toutes les 60 frames
         if (framecount > 30)
         {
@@ -124,7 +124,7 @@ int main()
             for (const auto &it : frameTime)
                 tmp += it;
             tmp = tmp/(float)30;
-            _DebugFPS.setString(sf::String(to_string((int)tmp) + " fps")) ;   
+            _DebugFPS.setString(sf::String(to_string((int)tmp) + " fps")) ;
             frameTime.clear();
             framecount=0;
         }

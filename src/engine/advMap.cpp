@@ -1,6 +1,6 @@
 #include "advMap.h"
-#include<iostream> 
-#include<fstream> 
+#include<iostream>
+#include<fstream>
 #include<cctype>
 #include<string>
 #include<vector>
@@ -31,9 +31,9 @@ unsigned char AdvMap::loadMap(string mapName)
     if(openfile.is_open())
     {
         // load tileset
-        std::string tileLocation; 
-        openfile >> tileLocation; 
-        tileTexture.loadFromFile(path+tileLocation); 
+        std::string tileLocation;
+        openfile >> tileLocation;
+        tileTexture.loadFromFile(path+tileLocation);
         m_tiles.setTexture(tileTexture);
 
         // read map file
@@ -41,18 +41,18 @@ unsigned char AdvMap::loadMap(string mapName)
         {
             // load tiles coordinates
             std::string str;
-            openfile >> str; 
+            openfile >> str;
             char x = str[0], y = str[2];
             if(!isdigit(x) || !isdigit(y))
                 tempMap.push_back(sf::Vector2i(-1, -1));
             else
                 // hack to translate char to int
-                tempMap.push_back(sf::Vector2i(x - '0', y - '0')); 
+                tempMap.push_back(sf::Vector2i(x - '0', y - '0'));
 
             // next line
             if(openfile.peek() == '\n')
             {
-                m_map.push_back(tempMap); 
+                m_map.push_back(tempMap);
                 tempMap.clear();
             }
         }
@@ -69,9 +69,9 @@ unsigned char AdvMap::loadMap(string mapName)
 void AdvMap::redraw(RenderTarget& window)
 {
 
-    for(int i = 0; i < m_map.size(); i++)
+    for(unsigned int i = 0; i < m_map.size(); i++)
     {
-        for(int j = 0; j < m_map[i].size(); j++)
+        for(unsigned int j = 0; j < m_map[i].size(); j++)
         {
             if(m_map[i][j].x != -1 && m_map[i][j].y != -1)
             {
@@ -83,7 +83,7 @@ void AdvMap::redraw(RenderTarget& window)
                     m_tiles.setPosition((j * 30)+15, (i * 8));
 
                 // select tile in tileset
-                m_tiles.setTextureRect(sf::IntRect(m_map[i][j].x * 30, m_map[i][j].y * (20+4) , 30, 20)); 
+                m_tiles.setTextureRect(sf::IntRect(m_map[i][j].x * 30, m_map[i][j].y * (20+4) , 30, 20));
 //              cout<<" coord map : " << j*16 << ":" << i*16 << "   tile coords : " << m_map[i][j].x*32 << ":" <<  m_map[i][j].y*32 << endl;
                 window.draw(m_tiles);
             }
