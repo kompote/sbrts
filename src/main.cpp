@@ -1,10 +1,14 @@
 #include <iostream>
-#include <SFML/Graphics.hpp>
+
 #include <list>
 #include "sys/sysinfo.h"
 
 #include "engine/advMap.h"
-using namespace std;
+#include "engine/unit.h"
+#include "utils/logger.h"
+
+#include <SFML/Graphics.hpp>
+
 
 // global vars
 sf::RenderWindow mainWindow(sf::VideoMode(800, 600), "SBRTS");    // global main window
@@ -26,7 +30,11 @@ float getFPS(const sf::Time& time) {
 //float targetFrameTime = targetFPS*1000000.0f;
 int main()
 {
-    // fps control
+  DBG_INFO("Starting main");
+   DBG_WARN("Starting main");
+    DBG_ERROR("Starting main");
+
+  // fps control
     sf::Clock FPSClock;
 //    float fps;
     std::list<float> frameTime;
@@ -40,6 +48,9 @@ int main()
 
     theMap.loadMap("map01");
     sf::Sprite mapSprite;
+
+
+  Unit unit;
 
    // map texture offscreen
     sf::RenderTexture rt;
@@ -93,6 +104,7 @@ int main()
         // render map
         rt.clear(sf::Color(20,20,20));
         theMap.redraw(rt);
+        unit.Redraw(rt);
         rt.draw(sf::Text("toto",_DebugFont,12)); // if not, bug ??
         rt.display();
         // Clear display

@@ -13,9 +13,9 @@
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Option use_console_runner="0" />
+				<Option projectCompilerOptionsRelation="0" />
 				<Compiler>
 					<Add option="-std=c++11" />
-					<Add option="-Wall" />
 					<Add option="-g" />
 					<Add directory="src/include" />
 				</Compiler>
@@ -48,6 +48,8 @@
 		</Linker>
 		<Unit filename="src/engine/advMap.cpp" />
 		<Unit filename="src/engine/advMap.h" />
+		<Unit filename="src/engine/unit.cpp" />
+		<Unit filename="src/engine/unit.h" />
 		<Unit filename="src/main.cpp" />
 		<Unit filename="src/resources/Aero.ttf">
 			<Option target="Release" />
@@ -55,6 +57,8 @@
 		<Unit filename="src/resources/Computerfont.ttf">
 			<Option target="Release" />
 		</Unit>
+		<Unit filename="src/utils/logger.cpp" />
+		<Unit filename="src/utils/logger.h" />
 		<Extensions>
 			<DoxyBlocks>
 				<comment_style block="0" line="0" />

@@ -5,6 +5,7 @@
 #include<string>
 #include<vector>
 
+#include "../utils/logger.h"
 
 AdvMap::AdvMap()
 {}
@@ -22,7 +23,7 @@ unsigned char AdvMap::loadMap(string mapName)
     // TODO : global path define
     string path = "maps/"+ mapName + "/map";
 
-    cout<<"Loading "<<path<<"... ";
+    DBG_INFO("Loading " + path + "... ");
     std::ifstream openfile(path);
 
     // map representation
@@ -58,10 +59,10 @@ unsigned char AdvMap::loadMap(string mapName)
         }
         m_map.push_back(tempMap);
 
-        cout<<"Done."<<endl;
+        DBG_INFO("Done.");
         return (unsigned char)0;
     }
-    cout<<"Falied."<<endl;
+    DBG_ERROR("Falied.");
     return (unsigned char)1;
 }
 
