@@ -17,3 +17,6 @@ sbrts
 *.cmake
 CMakeCache.txt
 CMakeFiles
+
+*.save
+examples/*
