@@ -111,6 +111,8 @@ int main()
                                 break;
                     }
                     break;
+                default:
+                    break;
             }
         }
         //update game state when needed

@@ -2,7 +2,7 @@
 #include <iostream>
 #include <sstream>
 
-SuperLog::SuperLog() : m_iLogCounter(0)
+SuperLog::SuperLog()
 {
   //ctor
 }
@@ -16,9 +16,9 @@ void SuperLog::print(const logType type, const std::string& msg, const std::stri
 {
 	std::ostringstream _out;
 	//16 + (red * 36) + (green * 6) + blue;
-	unsigned colorInfo = 16 + (0 * 36) + (0 * 6) + 6;
-	unsigned colorWarn = 16 + (0 * 36) + (6 * 6) + 6;
-	unsigned colorError = 16 + (6 * 36) + (0 * 6) + 0;
+	//unsigned colorInfo = 16 + (0 * 36) + (0 * 6) + 6;
+	//unsigned colorWarn = 16 + (0 * 36) + (6 * 6) + 6;
+	//unsigned colorError = 16 + (6 * 36) + (0 * 6) + 0;
 
 	switch(type)
   {
@@ -38,6 +38,7 @@ void SuperLog::print(const logType type, const std::string& msg, const std::stri
     break;
   }
   //_out << "[" << m_iLogCounter++ << "]" ;
+
   _out << "[" << file << ":" << line << "] : ";
   _out<<msg;
   _out << "\x1b[0m ";

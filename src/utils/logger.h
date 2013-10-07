@@ -14,6 +14,7 @@
 #define DBG_ERROR(msg) (SuperLog::print(SuperLog::logType::ERROR,msg,__SHORT_FORM_OF_FILE__,__LINE__))
 
 
+
 class SuperLog
 {
   public:
@@ -23,9 +24,9 @@ class SuperLog
     static void print(const logType type, const std::string& msg, const std::string& file, const int line);
     void suce();
 
-  private:
-    unsigned int m_iLogCounter;
+  //  static unsigned int m_iLogCounter;
 };
+
 
 
 #endif // LOGGER_H
