@@ -1,13 +1,13 @@
 #include "unit.h"
 
-Unit::Unit(std::pair<float,float> position)
-{
+using namespace core;
 
-    Entity::Entity(position, "Unit");
+core::Unit::Unit(std::pair<float,float> position): Entity(std::string("Unit"), position)
+{
 
 }
 
-Unit::~Unit()
+core::Unit::~Unit()
 {
     //dtor
 }

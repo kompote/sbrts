@@ -1,8 +1,9 @@
 #ifndef REPAIR_H
 #define REPAIR_H
 
-#include <action.h>
+#include "action.h"
 
+namespace core{
 
 class Repair : public Action
 {
@@ -12,5 +13,7 @@ class Repair : public Action
     protected:
     private:
 };
+
+}
 
 #endif // REPAIR_H

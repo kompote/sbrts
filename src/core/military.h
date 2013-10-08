@@ -1,8 +1,9 @@
 #ifndef MILITARY_H
 #define MILITARY_H
 
-#include <knowledge.h>
+#include "knowledge.h"
 
+namespace core{
 
 class Military : public Knowledge
 {
@@ -12,5 +13,7 @@ class Military : public Knowledge
     protected:
     private:
 };
+
+}
 
 #endif // MILITARY_H

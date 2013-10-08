@@ -1,5 +1,7 @@
 #include "repair.h"
 
+using namespace core;
+
 Repair::Repair()
 {
     //ctor

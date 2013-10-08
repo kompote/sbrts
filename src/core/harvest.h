@@ -1,8 +1,9 @@
 #ifndef HARVEST_H
 #define HARVEST_H
 
-#include <action.h>
+#include "action.h"
 
+namespace core{
 
 class Harvest : public Action
 {
@@ -12,5 +13,7 @@ class Harvest : public Action
     protected:
     private:
 };
+
+}
 
 #endif // HARVEST_H

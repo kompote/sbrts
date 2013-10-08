@@ -1,11 +1,13 @@
-#include "traits.h"
+#include "trait.h"
 
-Traits::Traits()
+using namespace core;
+
+Trait::Trait()
 {
     //ctor
 }
 
-Traits::~Traits()
+Trait::~Trait()
 {
     //dtor
 }

@@ -1,8 +1,9 @@
 #ifndef ATTACK_H
 #define ATTACK_H
 
-#include <action.h>
+#include "action.h"
 
+namespace core{
 
 class Attack : public Action
 {
@@ -12,5 +13,7 @@ class Attack : public Action
     protected:
     private:
 };
+
+}
 
 #endif // ATTACK_H

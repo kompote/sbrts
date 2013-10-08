@@ -1,6 +1,7 @@
 #ifndef TRAIT_H
 #define TRAIT_H
 
+namespace core{
 
 class Trait
 {
@@ -10,5 +11,7 @@ class Trait
     protected:
     private:
 };
+
+}
 
 #endif // TRAIT_H

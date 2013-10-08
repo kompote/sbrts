@@ -1,8 +1,9 @@
 #ifndef STRENGTH_H
 #define STRENGTH_H
 
-#include <trait.h>
+#include "trait.h"
 
+namespace core{
 
 class Strength : public Trait
 {
@@ -12,5 +13,7 @@ class Strength : public Trait
     protected:
     private:
 };
+
+}
 
 #endif // STRENGTH_H

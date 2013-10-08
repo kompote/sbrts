@@ -1,5 +1,7 @@
 #include "strength.h"
 
+using namespace core;
+
 Strength::Strength()
 {
     //ctor

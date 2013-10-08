@@ -1,5 +1,7 @@
 #include "lumber.h"
 
+using namespace core;
+
 Lumber::Lumber()
 {
     //ctor

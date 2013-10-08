@@ -1,8 +1,9 @@
 #ifndef INTELLIGENCE_H
 #define INTELLIGENCE_H
 
-#include <trait.h>
+#include "trait.h"
 
+namespace core{
 
 class Intelligence : public Trait
 {
@@ -12,5 +13,7 @@ class Intelligence : public Trait
     protected:
     private:
 };
+
+}
 
 #endif // INTELLIGENCE_H

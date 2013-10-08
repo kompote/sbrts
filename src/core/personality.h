@@ -1,6 +1,7 @@
 #ifndef PERSONALITY_H
 #define PERSONALITY_H
 
+namespace core{
 
 class Personality
 {
@@ -10,5 +11,7 @@ class Personality
     protected:
     private:
 };
+
+}
 
 #endif // PERSONALITY_H

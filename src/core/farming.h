@@ -1,8 +1,9 @@
 #ifndef FARMING_H
 #define FARMING_H
 
-#include <knowledge.h>
+#include "knowledge.h"
 
+namespace core{
 
 class Farming : public Knowledge
 {
@@ -12,5 +13,7 @@ class Farming : public Knowledge
     protected:
     private:
 };
+
+}
 
 #endif // FARMING_H

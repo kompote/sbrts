@@ -1,8 +1,9 @@
 #ifndef RESEARCH_H
 #define RESEARCH_H
 
-#include <knowledge.h>
+#include "knowledge.h"
 
+namespace core{
 
 class Research : public Knowledge
 {
@@ -12,5 +13,7 @@ class Research : public Knowledge
     protected:
     private:
 };
+
+}
 
 #endif // RESEARCH_H

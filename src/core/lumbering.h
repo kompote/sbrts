@@ -1,8 +1,9 @@
 #ifndef LUMBERING_H
 #define LUMBERING_H
 
-#include <knowledge.h>
+#include "knowledge.h"
 
+namespace core{
 
 class Lumbering : public Knowledge
 {
@@ -12,5 +13,7 @@ class Lumbering : public Knowledge
     protected:
     private:
 };
+
+}
 
 #endif // LUMBERING_H

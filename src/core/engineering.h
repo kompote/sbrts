@@ -1,8 +1,9 @@
 #ifndef ENGINEERING_H
 #define ENGINEERING_H
 
-#include <knowledge.h>
+#include "knowledge.h"
 
+namespace core{
 
 class Engineering : public Knowledge
 {
@@ -12,5 +13,7 @@ class Engineering : public Knowledge
     protected:
     private:
 };
+
+}
 
 #endif // ENGINEERING_H

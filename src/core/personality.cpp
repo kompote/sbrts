@@ -1,5 +1,7 @@
 #include "personality.h"
 
+using namespace core;
+
 Personality::Personality()
 {
     //ctor

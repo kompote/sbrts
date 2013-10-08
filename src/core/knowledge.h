@@ -1,6 +1,7 @@
 #ifndef KNOWLEDGE_H
 #define KNOWLEDGE_H
 
+namespace core{
 
 class Knowledge
 {
@@ -10,5 +11,7 @@ class Knowledge
     protected:
     private:
 };
+
+}
 
 #endif // KNOWLEDGE_H

@@ -1,5 +1,7 @@
 #include "build.h"
 
+using namespace core;
+
 Build::Build()
 {
     //ctor

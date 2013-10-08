@@ -1,5 +1,7 @@
 #include "ability.h"
 
+using namespace core;
+
 Ability::Ability()
 {
     //ctor

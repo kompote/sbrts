@@ -1,5 +1,7 @@
 #include "search.h"
 
+using namespace core;
+
 Search::Search()
 {
     //ctor

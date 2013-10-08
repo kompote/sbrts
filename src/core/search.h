@@ -1,8 +1,9 @@
 #ifndef SEARCH_H
 #define SEARCH_H
 
-#include <action.h>
+#include "action.h"
 
+namespace core{
 
 class Search : public Action
 {
@@ -12,5 +13,7 @@ class Search : public Action
     protected:
     private:
 };
+
+}
 
 #endif // SEARCH_H

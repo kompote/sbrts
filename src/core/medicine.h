@@ -1,8 +1,9 @@
 #ifndef MEDICINE_H
 #define MEDICINE_H
 
-#include <knowledge.h>
+#include "knowledge.h"
 
+namespace core{
 
 class Medicine : public Knowledge
 {
@@ -12,5 +13,7 @@ class Medicine : public Knowledge
     protected:
     private:
 };
+
+}
 
 #endif // MEDICINE_H

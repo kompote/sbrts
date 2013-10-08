@@ -1,8 +1,9 @@
 #ifndef BUILD_H
 #define BUILD_H
 
-#include <action.h>
+#include "action.h"
 
+namespace core{
 
 class Build : public Action
 {
@@ -12,5 +13,7 @@ class Build : public Action
     protected:
     private:
 };
+
+}
 
 #endif // BUILD_H

@@ -1,6 +1,7 @@
 #ifndef ACTION_H
 #define ACTION_H
 
+namespace core{
 
 class Action
 {
@@ -10,5 +11,7 @@ class Action
     protected:
     private:
 };
+
+}
 
 #endif // ACTION_H

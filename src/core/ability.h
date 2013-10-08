@@ -1,8 +1,9 @@
 #ifndef ABILITY_H
 #define ABILITY_H
 
-#include <trait.h>
+#include "trait.h"
 
+namespace core{
 
 class Ability : public Trait
 {
@@ -12,5 +13,7 @@ class Ability : public Trait
     protected:
     private:
 };
+
+}
 
 #endif // ABILITY_H

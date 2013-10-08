@@ -1,7 +1,9 @@
 #ifndef ENTITY_H
 #define ENTITY_H
 
-#include<string>
+#include <string>
+
+namespace core{
 
 class Entity
 {
@@ -19,5 +21,7 @@ class Entity
     std::pair<float,float> position;
 
 };
+
+}
 
 #endif

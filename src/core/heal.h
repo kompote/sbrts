@@ -1,8 +1,9 @@
 #ifndef HEAL_H
 #define HEAL_H
 
-#include <action.h>
+#include "action.h"
 
+namespace core{
 
 class Heal : public Action
 {
@@ -12,5 +13,7 @@ class Heal : public Action
     protected:
     private:
 };
+
+}
 
 #endif // HEAL_H

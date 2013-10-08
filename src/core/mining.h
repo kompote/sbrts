@@ -1,8 +1,9 @@
 #ifndef MINING_H
 #define MINING_H
 
-#include <knowledge.h>
+#include "knowledge.h"
 
+namespace core{
 
 class Mining : public Knowledge
 {
@@ -12,5 +13,7 @@ class Mining : public Knowledge
     protected:
     private:
 };
+
+}
 
 #endif // MINING_H

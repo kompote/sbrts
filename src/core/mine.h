@@ -1,8 +1,9 @@
 #ifndef MINE_H
 #define MINE_H
 
-#include <action.h>
+#include "action.h"
 
+namespace core{
 
 class Mine : public Action
 {
@@ -12,5 +13,7 @@ class Mine : public Action
     protected:
     private:
 };
+
+}
 
 #endif // MINE_H
