@@ -1,14 +1,19 @@
 #include "logger.h"
 #include <iostream>
 #include <sstream>
+#include <iomanip>
 
-SuperLog::SuperLog()
+SuperLog Log;
+
+SuperLog::SuperLog(): m_iLogCounter(0)
 {
+    m_bToFile = false;
   //ctor
 }
 
 SuperLog::~SuperLog()
 {
+    m_fLogFile.close();
   //dtor
 }
 
@@ -37,16 +42,25 @@ void SuperLog::print(const logType type, const std::string& msg, const std::stri
     _out << "(II) " ;
     break;
   }
-  //_out << "[" << m_iLogCounter++ << "]" ;
+  _out << "[" << std::setw(4) << m_iLogCounter++ << "]" ;
 
   _out << "[" << file << ":" << line << "] : ";
   _out<<msg;
   _out << "\x1b[0m ";
 
   std::cout << _out.str() << std::endl;
+    if(m_bToFile)
+        m_fLogFile << _out.str() << std::endl;
 }
 
-void SuperLog::suce()
+void SuperLog::toggleLogFile()
 {
-std::cout<<" SUCE! "<<std::endl;
+    if(m_bToFile)
+        m_fLogFile.close();
+    else
+        m_fLogFile.open("log.txt");
+
+
+    m_bToFile = !m_bToFile;
+
 }

@@ -721,9 +721,10 @@
 	<string>
 	<vector>
 
-1381190233 /home/t0m/dev/sbrts/src/utils/logger.h
+1381273131 /home/t0m/dev/sbrts/src/utils/logger.h
 	<string>
 	<cstring>
+	<fstream>
 
 1381262596 source:/home/t0m/dev/sbrts/src/engine/unit.cpp
 	"unit.h"
@@ -735,7 +736,7 @@
 1381262596 /home/t0m/dev/sbrts/src/engine/RessourceManager.h
 	<SFML/Graphics.hpp>
 
-1381188222 source:/home/t0m/dev/sbrts/src/main.cpp
+1381273313 source:/home/t0m/dev/sbrts/src/main.cpp
 	<iostream>
 	<list>
 	"engine/advMap.h"
@@ -743,8 +744,152 @@
 	"utils/logger.h"
 	<SFML/Graphics.hpp>
 
-1381190229 source:/home/t0m/dev/sbrts/src/utils/logger.cpp
+1381273235 source:/home/t0m/dev/sbrts/src/utils/logger.cpp
 	"logger.h"
 	<iostream>
 	<sstream>
+	<iomanip>
+
+1381271865 source:/home/t0m/dev/sbrts/src/core/ability.cpp
+	"ability.h"
+
+1381271865 /home/t0m/dev/sbrts/src/core/ability.h
+	"trait.h"
+
+1381271865 /home/t0m/dev/sbrts/src/core/trait.h
+
+1381271865 source:/home/t0m/dev/sbrts/src/core/action.cpp
+	"action.h"
+
+1381271865 /home/t0m/dev/sbrts/src/core/action.h
+
+1381271865 source:/home/t0m/dev/sbrts/src/core/attack.cpp
+	"attack.h"
+
+1381271865 /home/t0m/dev/sbrts/src/core/attack.h
+	"action.h"
+
+1381271865 source:/home/t0m/dev/sbrts/src/core/build.cpp
+	"build.h"
+
+1381271865 /home/t0m/dev/sbrts/src/core/build.h
+	"action.h"
+
+1381271865 source:/home/t0m/dev/sbrts/src/core/engineering.cpp
+	"engineering.h"
+
+1381271865 /home/t0m/dev/sbrts/src/core/engineering.h
+	"knowledge.h"
+
+1381271865 /home/t0m/dev/sbrts/src/core/knowledge.h
+
+1381271865 source:/home/t0m/dev/sbrts/src/core/entity.cpp
+	"entity.h"
+
+1381271865 /home/t0m/dev/sbrts/src/core/entity.h
+	<string>
+
+1381271865 source:/home/t0m/dev/sbrts/src/core/farming.cpp
+	"farming.h"
+
+1381271865 /home/t0m/dev/sbrts/src/core/farming.h
+	"knowledge.h"
+
+1381271865 source:/home/t0m/dev/sbrts/src/core/harvest.cpp
+	"harvest.h"
+
+1381271865 /home/t0m/dev/sbrts/src/core/harvest.h
+	"action.h"
+
+1381271865 source:/home/t0m/dev/sbrts/src/core/heal.cpp
+	"heal.h"
+
+1381271865 /home/t0m/dev/sbrts/src/core/heal.h
+	"action.h"
+
+1381271865 source:/home/t0m/dev/sbrts/src/core/intelligence.cpp
+	"intelligence.h"
+
+1381271865 /home/t0m/dev/sbrts/src/core/intelligence.h
+	"trait.h"
+
+1381271865 source:/home/t0m/dev/sbrts/src/core/knowledge.cpp
+	"knowledge.h"
+
+1381271865 source:/home/t0m/dev/sbrts/src/core/lumber.cpp
+	"lumber.h"
+
+1381271865 /home/t0m/dev/sbrts/src/core/lumber.h
+	"action.h"
+
+1381271865 source:/home/t0m/dev/sbrts/src/core/lumbering.cpp
+	"lumbering.h"
+
+1381271865 /home/t0m/dev/sbrts/src/core/lumbering.h
+	"knowledge.h"
+
+1381271865 source:/home/t0m/dev/sbrts/src/core/medicine.cpp
+	"medicine.h"
+
+1381271865 /home/t0m/dev/sbrts/src/core/medicine.h
+	"knowledge.h"
+
+1381271865 source:/home/t0m/dev/sbrts/src/core/military.cpp
+	"military.h"
+
+1381271865 /home/t0m/dev/sbrts/src/core/military.h
+	"knowledge.h"
+
+1381271865 source:/home/t0m/dev/sbrts/src/core/mine.cpp
+	"mine.h"
+
+1381271865 /home/t0m/dev/sbrts/src/core/mine.h
+	"action.h"
+
+1381271865 source:/home/t0m/dev/sbrts/src/core/mining.cpp
+	"mining.h"
+
+1381271865 /home/t0m/dev/sbrts/src/core/mining.h
+	"knowledge.h"
+
+1381271865 source:/home/t0m/dev/sbrts/src/core/personality.cpp
+	"personality.h"
+
+1381271865 /home/t0m/dev/sbrts/src/core/personality.h
+
+1381271865 source:/home/t0m/dev/sbrts/src/core/repair.cpp
+	"repair.h"
+
+1381271865 /home/t0m/dev/sbrts/src/core/repair.h
+	"action.h"
+
+1381271865 source:/home/t0m/dev/sbrts/src/core/research.cpp
+	"research.h"
+
+1381271865 /home/t0m/dev/sbrts/src/core/research.h
+	"knowledge.h"
+
+1381271865 source:/home/t0m/dev/sbrts/src/core/search.cpp
+	"search.h"
+
+1381271865 /home/t0m/dev/sbrts/src/core/search.h
+	"action.h"
+
+1381271865 source:/home/t0m/dev/sbrts/src/core/strength.cpp
+	"strength.h"
+
+1381271865 /home/t0m/dev/sbrts/src/core/strength.h
+	"trait.h"
+
+1381271865 source:/home/t0m/dev/sbrts/src/core/trait.cpp
+	"trait.h"
+
+1381271865 source:/home/t0m/dev/sbrts/src/core/unit.cpp
+	"unit.h"
+
+1381271865 /home/t0m/dev/sbrts/src/core/unit.h
+	"entity.h"
+
+1381262596 source:/home/t0m/dev/sbrts/src/engine/RessourceManager.cpp
+	"RessourceManager.h"
 

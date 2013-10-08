@@ -107,6 +107,10 @@ int main()
                                 if (mapPosX>3)
                                     mapPosX -=3;
                                 break;
+                            case sf::Keyboard::L:
+                                Log.toggleLogFile();
+                            case sf::Keyboard::T:
+                                DBG_WARN("Starting main");
                             default:
                                 break;
                     }

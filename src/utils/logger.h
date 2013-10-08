@@ -3,15 +3,16 @@
 
 #include <string>
 #include <cstring>
+#include <fstream>
 
 #define __SHORT_FORM_OF_FILE__ \
 (std::strrchr(__FILE__,'/') \
 ? std::strrchr(__FILE__,'/')+1 \
 : __FILE__ \
 )
-#define DBG_INFO(msg) (SuperLog::print(SuperLog::logType::INFO,msg,__SHORT_FORM_OF_FILE__,__LINE__))
-#define DBG_WARN(msg) (SuperLog::print(SuperLog::logType::WARNING,msg,__SHORT_FORM_OF_FILE__,__LINE__))
-#define DBG_ERROR(msg) (SuperLog::print(SuperLog::logType::ERROR,msg,__SHORT_FORM_OF_FILE__,__LINE__))
+#define DBG_INFO(msg) (Log.print(SuperLog::logType::INFO,msg,__SHORT_FORM_OF_FILE__,__LINE__))
+#define DBG_WARN(msg) (Log.print(SuperLog::logType::WARNING,msg,__SHORT_FORM_OF_FILE__,__LINE__))
+#define DBG_ERROR(msg) (Log.print(SuperLog::logType::ERROR,msg,__SHORT_FORM_OF_FILE__,__LINE__))
 
 
 
@@ -21,11 +22,15 @@ class SuperLog
     enum logType {ERROR, WARNING, INFO};
     SuperLog();
     ~SuperLog();
-    static void print(const logType type, const std::string& msg, const std::string& file, const int line);
-    void suce();
+    void print(const logType type, const std::string& msg, const std::string& file, const int line);
+    void toggleLogFile();
 
-  //  static unsigned int m_iLogCounter;
+private:
+    unsigned int m_iLogCounter;
+    bool m_bToFile;
+    std::ofstream m_fLogFile; // ("log.txt");
 };
+extern SuperLog Log;
 
 
 
