@@ -20,5 +20,3 @@ CMakeFiles
 
 *.save
 examples/*
-*.depend
-*.layout
