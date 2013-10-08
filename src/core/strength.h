@@ -1,10 +1,10 @@
 #ifndef STRENGTH_H
 #define STRENGTH_H
 
-#include <traits.h>
+#include <trait.h>
 
 
-class Strength : public Traits
+class Strength : public Trait
 {
     public:
         Strength();

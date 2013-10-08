@@ -1,8 +1,10 @@
 #include "unit.h"
 
-Unit::Unit()
+Unit::Unit(std::pair<float,float> position)
 {
-    //ctor
+
+    Entity::Entity(position, "Unit");
+
 }
 
 Unit::~Unit()

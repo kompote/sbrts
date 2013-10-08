@@ -1,10 +1,10 @@
 #ifndef ABILITY_H
 #define ABILITY_H
 
-#include <traits.h>
+#include <trait.h>
 
 
-class Ability : public Traits
+class Ability : public Trait
 {
     public:
         Ability();

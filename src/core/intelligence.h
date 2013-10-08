@@ -1,10 +1,10 @@
 #ifndef INTELLIGENCE_H
 #define INTELLIGENCE_H
 
-#include <traits.h>
+#include <trait.h>
 
 
-class Intelligence : public Traits
+class Intelligence : public Trait
 {
     public:
         Intelligence();
