@@ -12,6 +12,11 @@ const int TICKS_PER_SECOND = 25;  // game speed
 const int SKIP_TICKS = 1000 / TICKS_PER_SECOND; // second ratio
 const int MAX_FRAMESKIP = 5;  // max game update without draw
 
+// screensize stuff
+const unsigned int HUD_HEIGHT = 150;
+unsigned int fullscreenW = 800;
+unsigned int fullscreenH = 600;
+
 // global vars
 sf::RenderWindow mainWindow(sf::VideoMode(800, 600), "SBRTS");    // global main window
 AdvMap theMap;
@@ -20,7 +25,7 @@ AdvMap theMap;
 bool bfullscreen = false;
 void toggleFullscreen() {
     if (!bfullscreen)
-        mainWindow.create(VideoMode::getDesktopMode(),"SBRTS");
+        mainWindow.create(sf::VideoMode(fullscreenW, fullscreenH),"SBRTS");
     else
         mainWindow.create(sf::VideoMode(800,600),"SBRTS");
     bfullscreen = !bfullscreen;
@@ -39,6 +44,9 @@ int main()
     DBG_INFO("Starting main");
     DBG_WARN("Starting main");
     DBG_ERROR("Starting main");
+
+    fullscreenW = VideoMode::getDesktopMode().width;
+    fullscreenH = VideoMode::getDesktopMode().height;
 
     // Gamespeed control
     sf::Clock GameClock;
@@ -134,9 +142,11 @@ int main()
             mainWindow.clear(sf::Color(0, 140, 155));
 
             // dram map, only displayable part
-            // TODO : fulscreen
             mapSprite.setTexture(rt.getTexture());
-            mapSprite.setTextureRect(sf::IntRect(mapPosX,mapPosY,800,500));
+            if (bfullscreen)
+                mapSprite.setTextureRect(sf::IntRect(mapPosX,mapPosY,fullscreenW,fullscreenH - HUD_HEIGHT));
+            else
+                mapSprite.setTextureRect(sf::IntRect(mapPosX,mapPosY,800,500));
             mainWindow.draw(mapSprite);
             // draw fps text
             mainWindow.draw(_DebugFPS);
