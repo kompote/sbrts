@@ -12,7 +12,7 @@ RessourceManager::~RessourceManager()
     //dtor
 }
 
-sf::Texture RessourceManager::getTexture(const std::string textureName )
+sf::Texture& RessourceManager::getTexture(const std::string textureName )
 {
     if( textures.find(textureName) == textures.end() ){
         textures[textureName].loadFromFile(ressourcePath + texturePath + textureName);

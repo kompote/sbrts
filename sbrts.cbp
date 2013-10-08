@@ -45,6 +45,7 @@
 			<Add library="sfml-graphics" />
 			<Add library="sfml-window" />
 			<Add library="sfml-system" />
+			<Add library="src/lib/libGLEW.so" />
 		</Linker>
 		<Unit filename="src/engine/advMap.cpp" />
 		<Unit filename="src/engine/advMap.h" />

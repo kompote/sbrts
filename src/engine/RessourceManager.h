@@ -9,7 +9,7 @@ class RessourceManager
     public:
         RessourceManager();
         virtual ~RessourceManager();
-        sf::Texture getTexture(const std::string textureName );
+        sf::Texture& getTexture(const std::string textureName );
 
     protected:
     private:
