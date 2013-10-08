@@ -1,8 +1,11 @@
 #include "unit.h"
+#include "RessourceManager.h"
+
 
 Unit::Unit()
 {
-  m_tileTexture.loadFromFile("resources/campfire1.png");
+  //m_tileTexture.loadFromFile("resources/campfire1.png");
+    m_tileTexture = ressourceManager.getTexture("campfire1.png");
   m_tiles.setTexture(m_tileTexture);
   animFrameN = 0;
   m_tiles.setPosition(200, 200);

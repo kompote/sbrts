@@ -7,7 +7,7 @@
 class Unit// : public sf::Drawable, sf::Transformable
 {
  public:
-  Unit();
+ Unit();
   virtual ~Unit();
   void Redraw(sf::RenderTarget& window);
   sf::Sprite m_tiles;
