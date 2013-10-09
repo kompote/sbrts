@@ -11,13 +11,12 @@ class Unit// : public sf::Drawable, sf::Transformable
  Unit();
   virtual ~Unit();
   void Redraw(sf::RenderTarget& window);
-  sf::Sprite m_tiles;
-  sf::Texture m_tileTexture;
-  Animation anim;
+
+  Animation m_oAnim;
 
  protected:
  private:
-   int animFrameN;
+
 };
 
 #endif // UNIT_H
