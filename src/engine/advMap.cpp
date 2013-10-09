@@ -7,7 +7,7 @@
 
 #include "../utils/logger.h"
 
-AdvMap::AdvMap()
+AdvMap::AdvMap():m_map(), m_tiles(),m_tileTexture()
 {}
 
 AdvMap::~AdvMap()
@@ -34,8 +34,8 @@ unsigned char AdvMap::loadMap(string mapName)
         // load tileset
         std::string tileLocation;
         openfile >> tileLocation;
-        tileTexture.loadFromFile(path+tileLocation);
-        m_tiles.setTexture(tileTexture);
+        m_tileTexture.loadFromFile(path+tileLocation);
+        m_tiles.setTexture(m_tileTexture);
 
         // read map file
         while(!openfile.eof())

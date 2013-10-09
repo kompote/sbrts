@@ -16,7 +16,7 @@ class AdvMap
 
     std::vector<std::vector<sf::Vector2i> > m_map;
     sf::Sprite m_tiles;
-    sf::Texture tileTexture;
+    sf::Texture m_tileTexture;
 
 };
 
