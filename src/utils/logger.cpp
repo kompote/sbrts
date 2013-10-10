@@ -20,10 +20,6 @@ SuperLog::~SuperLog()
 void SuperLog::print(const logType type, const std::string& msg, const std::string& file, const int line)
 {
 	std::ostringstream _out;
-	//16 + (red * 36) + (green * 6) + blue;
-	//unsigned colorInfo = 16 + (0 * 36) + (0 * 6) + 6;
-	//unsigned colorWarn = 16 + (0 * 36) + (6 * 6) + 6;
-	//unsigned colorError = 16 + (6 * 36) + (0 * 6) + 0;
 
 	switch(type)
   {
@@ -51,6 +47,24 @@ void SuperLog::print(const logType type, const std::string& msg, const std::stri
   std::cout << _out.str() << std::endl;
     if(m_bToFile)
         m_fLogFile << _out.str() << std::endl;
+}
+
+void SuperLog::print(char* msg)
+{
+    std::ostringstream _out;
+    _out << "\x1b[31m  ";
+    _out << msg ;
+    _out << "\x1b[0m ";
+    std::cout << _out.str() << std::endl;
+}
+
+void SuperLog::print(const std::string& msg)
+{
+    std::ostringstream _out;
+    _out << "\x1b[31m  ";
+    _out << msg ;
+    _out << "\x1b[0m ";
+    std::cout << _out.str() << std::endl;
 }
 
 void SuperLog::toggleLogFile()

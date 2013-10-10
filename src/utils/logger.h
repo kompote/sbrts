@@ -13,6 +13,12 @@
 #define DBG_INFO(msg) (Log.print(SuperLog::logType::INFO,msg,__SHORT_FORM_OF_FILE__,__LINE__))
 #define DBG_WARN(msg) (Log.print(SuperLog::logType::WARNING,msg,__SHORT_FORM_OF_FILE__,__LINE__))
 #define DBG_ERROR(msg) (Log.print(SuperLog::logType::ERROR,msg,__SHORT_FORM_OF_FILE__,__LINE__))
+#define debug(format, ...) \
+do { \
+ char buf[512]; \
+ snprintf(buf, 512, format, ## __VA_ARGS__); \
+ Log.print(buf); \
+} while(false)
 
 
 
@@ -23,6 +29,8 @@ class SuperLog
     SuperLog();
     ~SuperLog();
     void print(const logType type, const std::string& msg, const std::string& file, const int line);
+    void print(char* msg);
+    void print(const std::string& msg);
     void toggleLogFile();
 
 private:
