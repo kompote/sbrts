@@ -6,9 +6,14 @@ namespace core{
 class Knowledge
 {
     public:
+
         Knowledge();
         virtual ~Knowledge();
+
     protected:
+
+        int level;
+
     private:
 };
 

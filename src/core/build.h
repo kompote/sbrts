@@ -8,8 +8,12 @@ namespace core{
 class Build : public Action
 {
     public:
-        Build();
+
+        Build(Personality * npersonality, std::map<std::string, Knowledge> * nknowledges);
         virtual ~Build();
+
+        float update_efficiency();
+
     protected:
     private:
 };

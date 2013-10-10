@@ -8,8 +8,12 @@ namespace core{
 class Attack : public Action
 {
     public:
-        Attack();
+
+        Attack(Personality * npersonality, std::map<std::string, Knowledge> * nknowledges);
         virtual ~Attack();
+
+        float update_efficiency();
+
     protected:
     private:
 };

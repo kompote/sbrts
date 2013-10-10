@@ -8,8 +8,12 @@ namespace core{
 class Mine : public Action
 {
     public:
-        Mine();
+
+        Mine(Personality * npersonality, std::map<std::string, Knowledge> * nknowledges);
         virtual ~Mine();
+
+        float update_efficiency();
+
     protected:
     private:
 };

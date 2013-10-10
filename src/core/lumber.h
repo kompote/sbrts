@@ -8,8 +8,12 @@ namespace core{
 class Lumber : public Action
 {
     public:
-        Lumber();
+
+        Lumber(Personality * npersonality, std::map<std::string, Knowledge> * nknowledges);
         virtual ~Lumber();
+
+        float update_efficiency();
+
     protected:
     private:
 };

@@ -8,8 +8,12 @@ namespace core{
 class Repair : public Action
 {
     public:
-        Repair();
+
+        Repair(Personality * npersonality, std::map<std::string, Knowledge> * nknowledges);
         virtual ~Repair();
+
+        float update_efficiency();
+
     protected:
     private:
 };

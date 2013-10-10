@@ -4,7 +4,9 @@ using namespace core;
 
 Knowledge::Knowledge()
 {
-    //ctor
+
+    level = 0;
+
 }
 
 Knowledge::~Knowledge()

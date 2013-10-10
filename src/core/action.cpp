@@ -2,12 +2,20 @@
 
 using namespace core;
 
-Action::Action()
+Action::Action(Personality * npersonality, std::map<std::string, Knowledge> * nknowledges, std::string nname): name(nname)
 {
-    //ctor
+
+    this->personality = npersonality;
+    this->knowledges = nknowledges;
+
 }
 
 Action::~Action()
 {
     //dtor
+}
+
+float Action::update_efficiency()
+{
+    return 0;
 }

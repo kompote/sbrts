@@ -8,8 +8,12 @@ namespace core{
 class Search : public Action
 {
     public:
-        Search();
+
+        Search(Personality * npersonality, std::map<std::string, Knowledge> * nknowledges);
         virtual ~Search();
+
+        float update_efficiency();
+
     protected:
     private:
 };

@@ -2,7 +2,7 @@
 
 using namespace core;
 
-Personality::Personality()
+Personality::Personality(std::map<std::string, Trait> ntraits): traits(ntraits)
 {
     //ctor
 }

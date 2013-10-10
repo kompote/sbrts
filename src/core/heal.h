@@ -8,8 +8,12 @@ namespace core{
 class Heal : public Action
 {
     public:
-        Heal();
+
+        Heal(Personality * npersonality, std::map<std::string, Knowledge> * nknowledges);
         virtual ~Heal();
+
+        float update_efficiency();
+
     protected:
     private:
 };
