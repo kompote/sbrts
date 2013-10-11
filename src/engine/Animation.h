@@ -15,18 +15,17 @@ class Animation : public sf::Sprite
         Animation( const Animation& copie );
         virtual ~Animation();
 
-        virtual void draw(sf::RenderTarget& window, int xPos, int yPos, int frameDurationUS);
-        bool isStopped();
-        void reset();
-        void setLoop(bool loop);
-
         // draw
         // draw the animation by selecting the animation texture's part which must be displayed at this point
         // when animation is over, next calling of this function without a reset will do nothing, except if loop is at true
         // declared virtual in order to use Sprite::draw behavior
-        void setAnimationTexture( sf::Texture& animationTexture);
+        virtual void draw(sf::RenderTarget& window, sf::Vector2i center, float rotation, int frameDurationUS);
+        bool isStopped();
+        void reset();
+        void setLoop(bool m_bLoop);
 
         // setters
+        void setAnimationTexture( sf::Texture& animationTexture);
         void setTextureWidth( int textureWidth);
         void setTextureHeight( int textureHeight);
         void setNbFrame( int nbFrame );
@@ -34,16 +33,17 @@ class Animation : public sf::Sprite
         void setTimePerFrameUS( int timePerFrameUS );
 
     protected:
-        sf::Texture animationTexture;
-        int textureWidth;
-        int textureHeight;
-        int nbFrame;
-        int nbPixelFrameSeparation;
-        int timePerFrameUS;
-        bool loop;
+        sf::Texture m_animationTexture;
+        int m_iTextureWidth;
+        int m_iTextureHeight;
+        int m_iNbFrame;
+        int m_iNbPixelFrameSeparation;
+        int m_iTimePerFrameUS;
+        bool m_bLoop;
 
-        int timePassedUS;
-        bool stop;
+        float m_fTextureRotation;
+        int m_iTimePassedUS;
+        bool m_bStop;
 
     private:
 };

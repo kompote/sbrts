@@ -18,5 +18,5 @@ Unit::~Unit()
 void Unit::Redraw(sf::RenderTarget& window)
 {
 
-    m_oAnim.draw( window, 200,100,50);
+    m_oAnim.draw( window, sf::Vector2i(200,100),180,50);
 }
