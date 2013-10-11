@@ -2,7 +2,7 @@
 #define RESSOURCE_MANAGER_H
 
 #include <SFML/Graphics.hpp>
-#include "Animation.h"
+#include "AnimatedSprite.h"
 
 class RessourceManager
 {
@@ -15,14 +15,14 @@ class RessourceManager
         sf::Texture& getTexture(const std::string textureName );
         // getAnimation, return a reference to the animation which name is animationName
         // each animation works as a singleton: load only one time on demand
-        Animation& getAnimation(const std::string animationName);
+        AnimatedSprite& getAnimation(const std::string animationName);
 
     protected:
     private:
         // map containing the textures already loaded
         std::map<std::string,sf::Texture> textures;
         // map containing the animations already loaded
-        std::map<std::string,Animation> animations;
+        std::map<std::string,AnimatedSprite> animations;
         // string containing the path to the ressources
         std::string ressourcePath = "resources//";
         // string containing the path to the textures

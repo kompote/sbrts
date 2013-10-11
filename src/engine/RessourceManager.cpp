@@ -31,7 +31,7 @@ sf::Texture& RessourceManager::getTexture(const std::string textureName )
 
 // getAnimation, return a reference to the animation which name is animationName
 // each animation works as a singleton: load only one time on demand
-Animation& RessourceManager::getAnimation(const std::string animationName)
+AnimatedSprite& RessourceManager::getAnimation(const std::string animationName)
 {
     // if animation not already loaded
     if( animations.find(animationName) == animations.end() ){
@@ -40,7 +40,7 @@ Animation& RessourceManager::getAnimation(const std::string animationName)
 
         if(animationFile.is_open()){
             std::string animationTextureName;
-            sf::Texture animationTexture;
+            //sf::Texture& animationTexture;
             int textureWidth;
             int textureHeight;
             int nbFrame;
@@ -49,7 +49,7 @@ Animation& RessourceManager::getAnimation(const std::string animationName)
 
             // extract animation's data
             animationFile >> animationTextureName;
-            animationTexture = getTexture( animationTextureName );
+            sf::Texture& animationTexture = getTexture( animationTextureName );
             animationFile >> textureWidth;
             animationFile >> textureHeight;
             animationFile >> nbFrame;
@@ -58,7 +58,7 @@ Animation& RessourceManager::getAnimation(const std::string animationName)
 
             // create the animation and stock it in the map
             //animations.insert( std::pair<std::string,Animation>(animationName,  Animation(animationTexture, textureWidth, textureHeight, nbFrame, nbPixelFrameSeparation, timePerFrameUS) ));
-            animations[animationName] = Animation(animationTexture, textureWidth, textureHeight, nbFrame, nbPixelFrameSeparation, timePerFrameUS);
+            animations[animationName] = AnimatedSprite(animationTexture, textureWidth, textureHeight, nbFrame, nbPixelFrameSeparation, timePerFrameUS);
 
         }
     }

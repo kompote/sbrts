@@ -2,7 +2,8 @@
 #define UNIT_H
 
 #include <SFML/Graphics.hpp>
-#include "Animation.h"
+#include "AnimatedSprite.h"
+#include "ImagedSprite.h"
 
 
 class Unit// : public sf::Drawable, sf::Transformable
@@ -12,7 +13,8 @@ class Unit// : public sf::Drawable, sf::Transformable
   virtual ~Unit();
   void Redraw(sf::RenderTarget& window);
 
-  Animation m_oAnim;
+  AnimatedSprite m_oAnim;
+  ImagedSprite m_oSprite;
 
  protected:
  private:
