@@ -20,7 +20,7 @@ unsigned char AdvMap::loadMap(string mapName)
 {
     // construct path
     // TODO : global path define
-    string path = "maps/"+ mapName + "/map";
+    string path = "resources/maps/"+ mapName + "/map";
 
     DBG_INFO("Loading " + path + "... ");
     std::ifstream openfile(path);
@@ -92,7 +92,7 @@ void AdvMap::redraw(RenderTarget& window, unsigned int fromX, unsigned int fromY
     if (startY < 0)
         startY = 0;
 
-    debug(" start : %d:%d\n", startX, startY);
+   // debug(" start : %d:%d\n", startX, startY);
     for(unsigned int i = startY; i < maxH; i++)
     {
         for(unsigned int j = startX; j < maxW; j++)
