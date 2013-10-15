@@ -94,9 +94,12 @@
 		<Unit filename="src/core/trait.h" />
 		<Unit filename="src/core/unit.cpp" />
 		<Unit filename="src/core/unit.h" />
-		<Unit filename="src/engine/Animation.cpp" />
-		<Unit filename="src/engine/Animation.h" />
+		<Unit filename="src/engine/AnimatedSprite.cpp" />
+		<Unit filename="src/engine/AnimatedSprite.h" />
+		<Unit filename="src/engine/ImagedSprite.cpp" />
+		<Unit filename="src/engine/ImagedSprite.h" />
 		<Unit filename="src/engine/RessourceManager.cpp" />
+		<Unit filename="src/engine/RessourceManager.h" />
 		<Unit filename="src/engine/advMap.cpp" />
 		<Unit filename="src/engine/advMap.h" />
 		<Unit filename="src/engine/unit.cpp" />
