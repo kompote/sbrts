@@ -7,16 +7,15 @@
 
 #include "../utils/logger.h"
 
-AdvMap::AdvMap():m_map(), m_tiles(),m_tileTexture()
+AdvMap::AdvMap():m_map(), m_tile(),m_tileTexture(),
+                 m_uiViewWidth(0),
+                 m_uiViewHeight(0)
 {}
 
 AdvMap::~AdvMap()
 {}
 
 // ------------------------------------------------------------------- LoadMap
-// To load a map
-// map name = map install folder
-// return an error if load failed
 unsigned char AdvMap::loadMap(string mapName)
 {
     // construct path
@@ -35,7 +34,7 @@ unsigned char AdvMap::loadMap(string mapName)
         std::string tileLocation;
         openfile >> tileLocation;
         m_tileTexture.loadFromFile(path+tileLocation);
-        m_tiles.setTexture(m_tileTexture);
+        m_tile.setTexture(m_tileTexture);
 
         // read map file
         while(!openfile.eof())
@@ -66,27 +65,51 @@ unsigned char AdvMap::loadMap(string mapName)
     return (unsigned char)1;
 }
 
-// ----------------------------------------------------------------- redraw
-void AdvMap::redraw(RenderTarget& window)
+// ----------------------------------------------------------------- setViewSize
+void AdvMap::setViewSize(unsigned int viewX, unsigned int viewY)
 {
+    m_uiViewWidth = viewX;
+    m_uiViewHeight = viewY;
+}
 
-    for(unsigned int i = 0; i < m_map.size(); i++)
+// ----------------------------------------------------------------- redraw
+void AdvMap::redraw(RenderTarget& window, unsigned int fromX, unsigned int fromY )
+{
+    // compute draw needin size
+    // 30 & 8 come from tile size. Will be soon in map definition
+    unsigned int maxW = ((fromX + m_uiViewWidth)/30) + 2;
+    unsigned int maxH = ((fromY + m_uiViewHeight)/8) + 2;
+    int startX = (fromX / 30) - 2;
+    int startY = (fromY / 8 ) - 2;
+
+    // limit to map size
+    if ( maxH > m_map.size() )
+        maxH = m_uiViewHeight;
+    if ( maxW > m_map[0].size() )
+        maxW = m_uiViewWidth;
+    if (startX < 0)
+        startX = 0;
+    if (startY < 0)
+        startY = 0;
+
+    debug(" start : %d:%d\n", startX, startY);
+    for(unsigned int i = startY; i < maxH; i++)
     {
-        for(unsigned int j = 0; j < m_map[i].size(); j++)
+        for(unsigned int j = startX; j < maxW; j++)
         {
             if(m_map[i][j].x != -1 && m_map[i][j].y != -1)
             {
                 // offset on unpair
                 // position on window
                 if(i%2==0)
-                    m_tiles.setPosition(j * 30, i * 8);
+                    m_tile.setPosition(j * 30, i * 8);
                 else
-                    m_tiles.setPosition((j * 30)+15, (i * 8));
+                    m_tile.setPosition((j * 30)+15, (i * 8));
 
                 // select tile in tileset
-                m_tiles.setTextureRect(sf::IntRect(m_map[i][j].x * 30, m_map[i][j].y * (20+4) , 30, 20));
-//              cout<<" coord map : " << j*16 << ":" << i*16 << "   tile coords : " << m_map[i][j].x*32 << ":" <<  m_map[i][j].y*32 << endl;
-                window.draw(m_tiles);
+                m_tile.setTextureRect(sf::IntRect(m_map[i][j].x * 30, m_map[i][j].y * (20+4) , 30, 20));
+                // draw tile
+                window.draw(m_tile);
             }
         }
     }

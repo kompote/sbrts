@@ -35,6 +35,7 @@ void toggleFullscreen() {
         screenH = 600;
     }
     mainWindow.create(sf::VideoMode(screenW, screenH),"SBRTS");
+    theMap.setViewSize(screenW, screenH);
     debug("Switching screen to %d:%d",screenW,screenH);
     bfullscreen = !bfullscreen;
 }
@@ -70,6 +71,9 @@ int main()
 
     // load the map
     theMap.loadMap("map01");
+    // set the map view size
+    theMap.setViewSize(screenW, screenH);
+    // set the displayable map sprite
     sf::Sprite mapSprite;
 
     // first unit test
@@ -138,7 +142,7 @@ int main()
         {
             // render map
             rt.clear(sf::Color(20,20,20));
-            theMap.redraw(rt);
+            theMap.redraw(rt, mapPosX, mapPosY);
             // render unit
             unit.Redraw(rt);
             // bug001
