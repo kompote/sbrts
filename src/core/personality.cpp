@@ -11,3 +11,17 @@ Personality::~Personality()
 {
     //dtor
 }
+
+Trait Personality::getTrait(std::string name)
+{
+
+
+
+}
+
+void Personality::setTrait(Trait trait)
+{
+
+
+
+}

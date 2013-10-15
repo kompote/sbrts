@@ -14,6 +14,7 @@ namespace core{
         public:
             Unit(std::pair<float,float> position, std::map<std::string, Trait> traits);
             virtual ~Unit();
+
         protected:
         private:
 
