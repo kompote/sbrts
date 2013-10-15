@@ -46,7 +46,11 @@ void SuperLog::print(const logType type, const std::string& msg, const std::stri
 
   std::cout << _out.str() << std::endl;
     if(m_bToFile)
-        m_fLogFile << _out.str() << std::endl;
+    {
+        m_fLogFile << "[" << std::setw(4) << m_iLogCounter-1 << "]" ;
+        m_fLogFile << "[" << file << ":" << line << "] : ";
+        m_fLogFile << msg << std::endl;
+    }
 }
 
 void SuperLog::print(char* msg)
@@ -72,7 +76,7 @@ void SuperLog::toggleLogFile()
     if(m_bToFile)
         m_fLogFile.close();
     else
-        m_fLogFile.open("log.txt");
+        m_fLogFile.open("log.txt");//, std::ofstream::app);
 
 
     m_bToFile = !m_bToFile;
