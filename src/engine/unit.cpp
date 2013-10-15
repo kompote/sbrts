@@ -7,7 +7,7 @@ Unit::Unit()
 {
     m_oAnim = AnimatedSprite(ressourceManager.getAnimation("campfire1"));
     m_oAnim.setLoop(true);
-    m_oSprite.setTexture(ressourceManager.getTexture("campfire1.png"));
+  //  m_oSprite.setTexture(ressourceManager.getTexture("campfire2.png"));
  //ctor
 }
 
@@ -19,6 +19,6 @@ Unit::~Unit()
 void Unit::Redraw(sf::RenderTarget& window)
 {
 
-    m_oAnim.draw( window, sf::Vector2i(200,100),180,50);
-    m_oSprite.draw( window, sf::Vector2i(300,200), 90,50);
+    m_oAnim.draw( window, sf::Vector2i(200,100),0,50);
+//    m_oSprite.draw( window, sf::Vector2i(300,200), 90,50);
 }

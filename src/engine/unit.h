@@ -13,11 +13,11 @@ class Unit// : public sf::Drawable, sf::Transformable
   virtual ~Unit();
   void Redraw(sf::RenderTarget& window);
 
-  AnimatedSprite m_oAnim;
-  ImagedSprite m_oSprite;
 
  protected:
  private:
+  AnimatedSprite m_oAnim;
+//  ImagedSprite m_oSprite;
 
 };
 
