@@ -1,18 +1,21 @@
 #ifndef KNOWLEDGE_H
 #define KNOWLEDGE_H
 
+#include <string>
+
 namespace core{
 
 class Knowledge
 {
     public:
 
-        Knowledge();
+        Knowledge(std::string name, int level);
         virtual ~Knowledge();
 
-    protected:
-
+        const std::string m_sName;
         int level;
+
+    protected:
 
     private:
 };

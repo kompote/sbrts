@@ -8,7 +8,7 @@ namespace core{
 class Ability : public Trait
 {
     public:
-        Ability();
+        Ability(float value);
         virtual ~Ability();
     protected:
     private:

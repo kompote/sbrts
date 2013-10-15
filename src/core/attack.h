@@ -9,7 +9,7 @@ class Attack : public Action
 {
     public:
 
-        Attack(Personality * npersonality, std::map<std::string, Knowledge> * nknowledges);
+        Attack(Personality * personality, std::map<std::string, Knowledge> * knowledges);
         virtual ~Attack();
 
         float update_efficiency();

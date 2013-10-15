@@ -9,7 +9,7 @@ class Build : public Action
 {
     public:
 
-        Build(Personality * npersonality, std::map<std::string, Knowledge> * nknowledges);
+        Build(Personality * personality, std::map<std::string, Knowledge> * knowledges);
         virtual ~Build();
 
         float update_efficiency();

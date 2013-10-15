@@ -2,7 +2,7 @@
 
 using namespace core;
 
-Ability::Ability()
+Ability::Ability(float value): Trait(std::string("Ability"), value)
 {
     //ctor
 }

@@ -2,7 +2,7 @@
 
 using namespace core;
 
-Repair::Repair(Personality * npersonality, std::map<std::string, Knowledge> * nknowledges): Action(npersonality, nknowledges, std::string("Repair"))
+Repair::Repair(Personality * personality, std::map<std::string, Knowledge> * knowledges): Action(personality, knowledges, std::string("Repair"))
 {
     //ctor
 }

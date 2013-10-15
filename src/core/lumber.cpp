@@ -2,7 +2,7 @@
 
 using namespace core;
 
-Lumber::Lumber(Personality * npersonality, std::map<std::string, Knowledge> * nknowledges): Action(npersonality, nknowledges, std::string("Lumber"))
+Lumber::Lumber(Personality * personality, std::map<std::string, Knowledge> * knowledges): Action(personality, knowledges, std::string("Lumber"))
 {
     //ctor
 }

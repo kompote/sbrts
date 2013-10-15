@@ -2,7 +2,7 @@
 
 using namespace core;
 
-Attack::Attack(Personality * npersonality, std::map<std::string, Knowledge> * nknowledges): Action(npersonality, nknowledges, std::string("Attack"))
+Attack::Attack(Personality * personality, std::map<std::string, Knowledge> * knowledges): Action(personality, knowledges, std::string("Attack"))
 {
     //ctor
 }

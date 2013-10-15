@@ -2,11 +2,11 @@
 
 using namespace core;
 
-Action::Action(Personality * npersonality, std::map<std::string, Knowledge> * nknowledges, std::string nname): name(nname)
+Action::Action(Personality * personality, std::map<std::string, Knowledge> * knowledges, std::string name): m_sName(name)
 {
 
-    this->personality = npersonality;
-    this->knowledges = nknowledges;
+    this->m_personality = personality;
+    this->m_knowledges = knowledges;
 
 }
 

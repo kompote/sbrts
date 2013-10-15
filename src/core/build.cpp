@@ -2,7 +2,7 @@
 
 using namespace core;
 
-Build::Build(Personality * npersonality, std::map<std::string, Knowledge> * nknowledges): Action(npersonality, nknowledges, std::string("Build"))
+Build::Build(Personality * personality, std::map<std::string, Knowledge> * knowledges): Action(personality, knowledges, std::string("Build"))
 {
     //ctor
 }

@@ -8,7 +8,7 @@ namespace core{
 class Mining : public Knowledge
 {
     public:
-        Mining();
+        Mining(int level = 0);
         virtual ~Mining();
     protected:
     private:

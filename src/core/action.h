@@ -14,12 +14,12 @@ class Action
         virtual ~Action();
 
         virtual float update_efficiency();
-        const std::string name;
+        const std::string m_sName;
 
     protected:
 
-        Personality * personality;
-        std::map<std::string, Knowledge> * knowledges;
+        Personality * m_personality;
+        std::map<std::string, Knowledge> * m_knowledges;
         float efficiency;
 
     private:

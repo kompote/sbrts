@@ -2,9 +2,11 @@
 
 using namespace core;
 
-Trait::Trait()
+Trait::Trait(std::string name, float value): m_sName(name)
 {
-    //ctor
+
+    this->m_fValue = value;
+
 }
 
 Trait::~Trait()

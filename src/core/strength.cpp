@@ -2,7 +2,7 @@
 
 using namespace core;
 
-Strength::Strength()
+Strength::Strength(float value): Trait(std::string("Strength"), value)
 {
     //ctor
 }

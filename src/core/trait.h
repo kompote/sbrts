@@ -1,18 +1,21 @@
 #ifndef TRAIT_H
 #define TRAIT_H
 
+#include <string>
+
 namespace core{
 
 class Trait
 {
     public:
 
-        Trait();
+        Trait(std::string name, float value = 0);
         virtual ~Trait();
-
-        float update_efficiency();
+        float m_fValue;
+        const std::string m_sName;
 
     protected:
+
     private:
 };
 

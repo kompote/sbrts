@@ -8,7 +8,7 @@ namespace core{
 class Strength : public Trait
 {
     public:
-        Strength();
+        Strength(float value);
         virtual ~Strength();
     protected:
     private:

@@ -2,7 +2,7 @@
 
 using namespace core;
 
-Medicine::Medicine()
+Medicine::Medicine(int level): Knowledge(std::string("Engineering"), level)
 {
     //ctor
 }

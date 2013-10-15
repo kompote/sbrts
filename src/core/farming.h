@@ -8,7 +8,7 @@ namespace core{
 class Farming : public Knowledge
 {
     public:
-        Farming();
+        Farming(int level = 0);
         virtual ~Farming();
     protected:
     private:

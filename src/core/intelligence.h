@@ -8,7 +8,7 @@ namespace core{
 class Intelligence : public Trait
 {
     public:
-        Intelligence();
+        Intelligence(float value);
         virtual ~Intelligence();
     protected:
     private:

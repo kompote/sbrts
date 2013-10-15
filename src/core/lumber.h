@@ -9,7 +9,7 @@ class Lumber : public Action
 {
     public:
 
-        Lumber(Personality * npersonality, std::map<std::string, Knowledge> * nknowledges);
+        Lumber(Personality * personality, std::map<std::string, Knowledge> * knowledges);
         virtual ~Lumber();
 
         float update_efficiency();

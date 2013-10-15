@@ -2,7 +2,7 @@
 
 using namespace core;
 
-Military::Military()
+Military::Military(int level): Knowledge(std::string("Engineering"), level)
 {
     //ctor
 }

@@ -4,7 +4,7 @@
 #include <map>
 #include "entity.h"
 #include "personality.h"
-#include "knowledge.h"
+#include "knowledges.h"
 #include "action.h"
 
 namespace core{
@@ -17,9 +17,9 @@ namespace core{
         protected:
         private:
 
-        Personality personality;
-        std::map<std::string, Knowledge> knowledges;
-        std::map<std::string, Action> actions;
+        Personality m_personality;
+        Knowledges m_knowledges;
+        std::map<std::string, Action> m_actions;
 
     };
 

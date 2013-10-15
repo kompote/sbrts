@@ -2,7 +2,7 @@
 
 using namespace core;
 
-Harvest::Harvest(Personality * npersonality, std::map<std::string, Knowledge> * nknowledges): Action(npersonality, nknowledges, std::string("Harvest"))
+Harvest::Harvest(Personality * personality, std::map<std::string, Knowledge> * knowledges): Action(personality, knowledges, std::string("Harvest"))
 {
     //ctor
 }

@@ -9,8 +9,8 @@ class Entity
 {
     public:
 
-        const std::string type;
-        Entity(std::string ntype, std::pair<float,float> position);
+        const std::string m_sType;
+        Entity(std::string type, std::pair<float,float> position);
         ~Entity();
 
         std::pair<float,float> getPosition();
@@ -18,7 +18,7 @@ class Entity
 
     private:
 
-    std::pair<float,float> position;
+    std::pair<float,float> m_position;
 
 };
 

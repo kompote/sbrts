@@ -9,7 +9,7 @@ class Harvest : public Action
 {
     public:
 
-        Harvest(Personality * npersonality, std::map<std::string, Knowledge> * nknowledges);
+        Harvest(Personality * personality, std::map<std::string, Knowledge> * knowledges);
         virtual ~Harvest();
 
         float update_efficiency();

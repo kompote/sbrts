@@ -2,10 +2,10 @@
 
 using namespace core;
 
-Knowledge::Knowledge()
+Knowledge::Knowledge(std::string name, int level): m_sName(name)
 {
 
-    level = 0;
+    this->level = level;
 
 }
 

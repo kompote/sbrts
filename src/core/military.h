@@ -8,7 +8,7 @@ namespace core{
 class Military : public Knowledge
 {
     public:
-        Military();
+        Military(int level = 0);
         virtual ~Military();
     protected:
     private:

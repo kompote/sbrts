@@ -8,7 +8,7 @@ namespace core{
 class Medicine : public Knowledge
 {
     public:
-        Medicine();
+        Medicine(int level = 0);
         virtual ~Medicine();
     protected:
     private:

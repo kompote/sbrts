@@ -2,7 +2,7 @@
 
 using namespace core;
 
-Search::Search(Personality * npersonality, std::map<std::string, Knowledge> * nknowledges): Action(npersonality, nknowledges, std::string("Search"))
+Search::Search(Personality * personality, std::map<std::string, Knowledge> * knowledges): Action(personality, knowledges, std::string("Search"))
 {
     //ctor
 }

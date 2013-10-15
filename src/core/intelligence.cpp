@@ -2,7 +2,7 @@
 
 using namespace core;
 
-Intelligence::Intelligence()
+Intelligence::Intelligence(float value): Trait(std::string("Intelligence"), value)
 {
     //ctor
 }

@@ -9,7 +9,7 @@ class Repair : public Action
 {
     public:
 
-        Repair(Personality * npersonality, std::map<std::string, Knowledge> * nknowledges);
+        Repair(Personality * personality, std::map<std::string, Knowledge> * knowledges);
         virtual ~Repair();
 
         float update_efficiency();

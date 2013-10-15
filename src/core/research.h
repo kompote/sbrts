@@ -8,7 +8,7 @@ namespace core{
 class Research : public Knowledge
 {
     public:
-        Research();
+        Research(int level = 0);
         virtual ~Research();
     protected:
     private:

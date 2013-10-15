@@ -8,7 +8,7 @@ namespace core{
 class Engineering : public Knowledge
 {
     public:
-        Engineering();
+        Engineering(int level = 0);
         virtual ~Engineering();
     protected:
     private:

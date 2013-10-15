@@ -2,7 +2,7 @@
 
 using namespace core;
 
-Farming::Farming()
+Farming::Farming(int level): Knowledge(std::string("Engineering"), level)
 {
     //ctor
 }

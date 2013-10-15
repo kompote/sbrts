@@ -2,7 +2,7 @@
 
 using namespace core;
 
-Research::Research()
+Research::Research(int level): Knowledge(std::string("Engineering"), level)
 {
     //ctor
 }

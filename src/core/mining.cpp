@@ -2,7 +2,7 @@
 
 using namespace core;
 
-Mining::Mining()
+Mining::Mining(int level): Knowledge(std::string("Engineering"), level)
 {
     //ctor
 }

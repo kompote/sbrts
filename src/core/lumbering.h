@@ -8,7 +8,7 @@ namespace core{
 class Lumbering : public Knowledge
 {
     public:
-        Lumbering();
+        Lumbering(int level = 0);
         virtual ~Lumbering();
     protected:
     private:
