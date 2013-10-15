@@ -7,16 +7,16 @@ sbrts
 
 In case you only use a text editor (Gedit, VIM) there's just a few things to know:
 
-- To generate Makefiles, go into "build/" and do "cmake ..", this will call CMake
-using the "CMakelists.txt" file in the parent directory ("..") of build/ (the root directory of the project)
-but will generate all the build files needed into "build/", this way you'll not pollute the main directory
+- To generate Makefiles, make a directory at the repository's parent directory, call it build, go into it and do "cmake ../repository_name",
+this will call CMake using the "CMakelists.txt" file in the repository (the root directory of the project)
+but will generate all the build files needed into "build/", this way you'll not pollute the repository
 with generated build files.
 
 - Once the build files are generated, and while you still are in "build/", you can build the project using "make",
 this will use the generated Makefiles to build the project executable "Main" into "bin/" (this and various
 object files in "build/")
 
-- To properly run the executable, go into src/, and call it with "../bin/Main", calling it from "src/" is
+- To properly run the executable, go into build/bin/, and call it with "./Main", calling it is
 required at the moment since there's still relative paths used in the code, in a further update we will
 change that.
 
