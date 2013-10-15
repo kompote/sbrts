@@ -5,6 +5,7 @@
 #include "engine/advMap.h"
 #include "engine/unit.h"
 #include "utils/logger.h"
+#include "utils/tools.h"
 
 #include <SFML/Graphics.hpp>
 
@@ -50,8 +51,9 @@ int main()
 {
 
     DBG_INFO("Starting main");
-    DBG_WARN("Starting main");
-    DBG_ERROR("Starting main");
+//    DBG_WARN("Starting main");
+//    DBG_ERROR("Starting main");
+    debug("Game Speed: %u", TICKS_PER_SECOND);
 
 
 
@@ -68,6 +70,8 @@ int main()
     _DebugFont.loadFromFile("resources/Aero.ttf");
     sf::Text _DebugFPS("fps", _DebugFont,12);
     _DebugFPS.setPosition(750.0,5.0);
+    sf::Text _DebugMEM("mem", _DebugFont,12);
+    _DebugMEM.setPosition(750.0,20.0);
 
     // load the map
     theMap.loadMap("map01");
@@ -155,8 +159,9 @@ int main()
             mapSprite.setTextureRect(sf::IntRect(mapPosX, mapPosY, screenW, screenH - HUD_HEIGHT));
 
             mainWindow.draw(mapSprite);
-            // draw fps text
+            // draw debug text
             mainWindow.draw(_DebugFPS);
+            mainWindow.draw(_DebugMEM);
 
             // set next update tick
             next_game_tick += SKIP_TICKS;
@@ -173,6 +178,7 @@ int main()
         //    sf::sleep( sf::microseconds(targetFrameTime - fps*1000000.0f) );
 
         // fps display toutes les 60 frames
+        //
         if (framecount > 30)
         {
             //sf::Time tmp;
@@ -182,6 +188,7 @@ int main()
                 tmp += it;
             tmp = tmp/(float)31;
             _DebugFPS.setString(sf::String(to_string((int)tmp) + " fps")) ;
+            _DebugMEM.setString(sf::String(to_string(Tools::getRSS()/1000) + " Mo")) ;
             frameTime.clear();
             framecount=0;
         }
