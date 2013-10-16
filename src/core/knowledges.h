@@ -14,6 +14,10 @@ class Knowledges
         Knowledges(std::map<std::string, Knowledge> knowledges);
         Knowledges();
         virtual ~Knowledges();
+        
+        Knowledge getKnowledge(std::string name);
+        void setKnowledge(Knowledge knowledge);
+        
     protected:
     private:
 

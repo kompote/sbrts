@@ -13,7 +13,7 @@ class Knowledge
         virtual ~Knowledge();
 
         const std::string m_sName;
-        int level;
+        int m_iLevel;
 
     protected:
 
