@@ -92,6 +92,9 @@ int main()
     // calculate game next update
     long next_game_tick = GameClock.getElapsedTime().asMilliseconds();
 
+    // selection box origin vector
+    sf::Vector2i selRectOrg;
+
     while (mainWindow.isOpen())
     {
         // Event management
@@ -103,6 +106,15 @@ int main()
                 case sf::Event::Closed:
                     mainWindow.close();
                     break;
+                // initiate selection rectangle
+                case sf::Event::MouseButtonPressed:
+                    if (event.mouseButton.button == sf::Mouse::Left)
+                    {
+                        selRectOrg.x = event.mouseButton.x;
+                        selRectOrg.y = event.mouseButton.y;
+                        debug("click mouse %d:%d", selRectOrg.x, selRectOrg.y);
+                    }
+
                 case sf::Event::KeyPressed:
                     switch(event.key.code)
                     {
@@ -141,7 +153,7 @@ int main()
             }
         }
         //update game state when needed
-     //  while( GameClock.getElapsedTime().asMilliseconds() > next_game_tick && loops < MAX_FRAMESKIP)
+        //  while( GameClock.getElapsedTime().asMilliseconds() > next_game_tick && loops < MAX_FRAMESKIP)
        if(GameClock.getElapsedTime().asMilliseconds() > next_game_tick)
         {
             // render map
@@ -162,6 +174,16 @@ int main()
             // draw debug text
             mainWindow.draw(_DebugFPS);
             mainWindow.draw(_DebugMEM);
+
+            // render selection rectangle selBox
+            if( sf::Mouse::isButtonPressed( sf::Mouse::Left ) )
+            {
+                sf::RectangleShape selBox = sf::RectangleShape( static_cast<sf::Vector2f>(sf::Mouse::getPosition(mainWindow) - selRectOrg)) ;
+                selBox.setPosition(static_cast<sf::Vector2f>(selRectOrg));
+                selBox.setFillColor(sf::Color(100, 150, 100, 150));
+
+                mainWindow.draw( selBox );
+            }
 
             // set next update tick
             next_game_tick += SKIP_TICKS;
