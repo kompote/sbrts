@@ -18,6 +18,8 @@ const unsigned int HUD_HEIGHT = 150;
 unsigned int screenW = 800;
 unsigned int screenH = 600;
 
+const int MAP_EDGE_MOUSE_GAP = 20;
+
 // global vars
 sf::RenderWindow mainWindow(sf::VideoMode(800, 600), "SBRTS");    // global main window
 AdvMap theMap;
@@ -94,7 +96,12 @@ int main()
 
     // selection box origin vector
     sf::Vector2i selRectOrg;
-
+    // map edge detection booleans
+    bool moveToWest = false; 
+    bool moveToEast= false; 
+    bool moveToNorth = false; 
+    bool moveToSouth = false; 
+   
     while (mainWindow.isOpen())
     {
         // Event management
@@ -114,7 +121,29 @@ int main()
                         selRectOrg.y = event.mouseButton.y;
                         debug("click mouse %d:%d", selRectOrg.x, selRectOrg.y);
                     }
+                    break;
 
+                // move map on map edge
+                case sf::Event::MouseMoved:
+                    if (event.mouseMove.x < 20)
+                        moveToWest = true;
+                    else
+                        moveToWest = false;
+                    if (event.mouseMove.x > screenW - MAP_EDGE_MOUSE_GAP)
+                        moveToEast = true;
+                    else
+                        moveToEast = false;
+                    if (event.mouseMove.y < 20)
+                        moveToNorth = true;
+                    else
+                        moveToNorth = false;
+                    if (event.mouseMove.y > screenH - MAP_EDGE_MOUSE_GAP)
+                        moveToSouth = true;
+                    else
+                        moveToSouth = false;
+                    break;
+
+                // keyboard event
                 case sf::Event::KeyPressed:
                     switch(event.key.code)
                     {
@@ -124,6 +153,7 @@ int main()
                             case sf::Keyboard::Q:
                                 mainWindow.close();
                                 break;
+                                /*
                             case sf::Keyboard::Up:
                                 if (mapPosY<597)
                                     mapPosY +=3;
@@ -140,10 +170,10 @@ int main()
                                 if (mapPosX>3)
                                     mapPosX -=3;
                                 break;
+                                */
                             case sf::Keyboard::L:
                                 Log.toggleLogFile();
-                            case sf::Keyboard::T:
-                                DBG_WARN("Starting main");
+                                break;
                             default:
                                 break;
                     }
@@ -153,7 +183,6 @@ int main()
             }
         }
         //update game state when needed
-        //  while( GameClock.getElapsedTime().asMilliseconds() > next_game_tick && loops < MAX_FRAMESKIP)
        if(GameClock.getElapsedTime().asMilliseconds() > next_game_tick)
         {
             // render map
@@ -166,6 +195,19 @@ int main()
             // Clear display
             mainWindow.clear(sf::Color(0, 14, 15));
 
+            // move map on map edge
+            if (moveToWest)
+                if (mapPosX>5)
+                    mapPosX -= 5;
+            if (moveToEast)
+                if (mapPosX<screenW-5)
+                    mapPosX += 5;
+            if (moveToNorth)
+                if (mapPosY>5)
+                    mapPosY -= 5;
+            if (moveToSouth)
+                if (mapPosY<screenH-5)
+                    mapPosY += 5;
             // dram map, only displayable part
             mapSprite.setTexture(rt.getTexture());
             mapSprite.setTextureRect(sf::IntRect(mapPosX, mapPosY, screenW, screenH - HUD_HEIGHT));
