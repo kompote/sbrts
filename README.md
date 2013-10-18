@@ -16,9 +16,9 @@ with generated build files.
 this will use the generated Makefiles to build the project executable "Main" into "bin/" (this and various
 object files in "build/")
 
-- To properly run the executable, go into build/bin/, and call it with "./Main", calling it is
-required at the moment since there's still relative paths used in the code, in a further update we will
-change that.
+- To properly run the executable, go into build/bin/, and call it with "./Main", 
+
+
 
 
 -- Using Netbeans --
@@ -61,3 +61,8 @@ run it yet, to do so right click on "SBRTS" in the right panel, Properties, then
 in Execution working dir set "path/to/project/sbrts/src", this will tell Code::Blocks to run the executable from "src/".
 
 - You can now build and run the project using Code::Blocks, congrats !
+
+-- Generate the doc
+
+To generate the doc, you need to install 'doxygen' and 'graphviz' packages.
+Then, simply do 'doxygen Doxyfile' in the repo's directory. This will generate the documentation in HTML in directory 'doc/html'
