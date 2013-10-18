@@ -22,6 +22,7 @@ const int MAP_EDGE_MOUSE_GAP = 20;
 
 // global vars
 sf::RenderWindow mainWindow(sf::VideoMode(800, 600), "SBRTS");    // global main window
+using namespace engine;
 AdvMap theMap;
 
 // ----------------------------------------------------------------- toggleFullscreen
@@ -140,6 +141,7 @@ int main()
                         if (sel)
                             unit.select();
                     }
+                    break;
 
                 // move map on map edge
                 case sf::Event::MouseMoved:

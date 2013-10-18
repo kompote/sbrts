@@ -7,16 +7,16 @@
 
 #include "../utils/logger.h"
 
-AdvMap::AdvMap():m_map(), m_tile(),m_tileTexture(),
+engine::AdvMap::AdvMap():m_map(), m_tile(),m_tileTexture(),
                  m_uiViewWidth(0),
                  m_uiViewHeight(0)
 {}
 
-AdvMap::~AdvMap()
+engine::AdvMap::~AdvMap()
 {}
 
 // ------------------------------------------------------------------- LoadMap
-unsigned char AdvMap::loadMap(string mapName)
+unsigned char engine::AdvMap::loadMap(string mapName)
 {
     // construct path
     // TODO : global path define
@@ -66,14 +66,14 @@ unsigned char AdvMap::loadMap(string mapName)
 }
 
 // ----------------------------------------------------------------- setViewSize
-void AdvMap::setViewSize(unsigned int viewX, unsigned int viewY)
+void engine::AdvMap::setViewSize(unsigned int viewX, unsigned int viewY)
 {
     m_uiViewWidth = viewX;
     m_uiViewHeight = viewY;
 }
 
 // ----------------------------------------------------------------- redraw
-void AdvMap::redraw(RenderTarget& window, unsigned int fromX, unsigned int fromY )
+void engine::AdvMap::redraw(RenderTarget& window, unsigned int fromX, unsigned int fromY )
 {
     // compute draw needin size
     // 30 & 8 come from tile size. Will be soon in map definition
