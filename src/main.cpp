@@ -84,6 +84,7 @@ int main()
 
     // first unit test
     Unit unit;
+    unit.setPosition(sf::Vector2i(200,200));
 
     // map texture offscreen
     sf::RenderTexture rt;
@@ -120,8 +121,25 @@ int main()
                         selRectOrg.x = event.mouseButton.x;
                         selRectOrg.y = event.mouseButton.y;
                         debug("click mouse %d:%d", selRectOrg.x, selRectOrg.y);
+                        // one shot selection
+                        // create a small rect to detect unit inside
+                        // arbitrary values
+                        bool sel = sf::IntRect(event.mouseButton.x-5, event.mouseButton.y-5,10,10).contains(unit.getPosition());
+                        if (sel)
+                            unit.select();
+                        else
+                            unit.unSelect();
                     }
                     break;
+
+                // selection rectangle close
+                case sf::Event::MouseButtonReleased:
+                    if (event.mouseButton.button == sf::Mouse::Left)
+                    {
+                        bool sel = sf::IntRect(selRectOrg,sf::Vector2i(event.mouseButton.x, event.mouseButton.y)).contains(unit.getPosition());
+                        if (sel)
+                            unit.select();
+                    }
 
                 // move map on map edge
                 case sf::Event::MouseMoved:

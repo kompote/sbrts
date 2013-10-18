@@ -12,12 +12,17 @@ class Unit// : public sf::Drawable, sf::Transformable
  Unit();
   virtual ~Unit();
   void Redraw(sf::RenderTarget& window);
+  sf::Vector2i& getPosition();
+  void setPosition(sf::Vector2i position);
+  void select();
+  void unSelect();
 
 
  protected:
  private:
   AnimatedSprite m_oAnim;
-//  ImagedSprite m_oSprite;
+  sf::Vector2i m_vPosition;
+  bool m_bSelected;
 
 };
 
