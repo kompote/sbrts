@@ -98,6 +98,7 @@ int main()
 
     // selection box origin vector
     sf::Vector2i selRectOrg;
+    bool bSelFromSelBox = false; // selection box indicator
     // map edge detection booleans
     bool moveToWest = false; 
     bool moveToEast= false; 
@@ -125,7 +126,7 @@ int main()
                         // one shot selection
                         // create a small rect to detect unit inside
                         // arbitrary values
-                        bool sel = sf::IntRect(event.mouseButton.x-5, event.mouseButton.y-5,10,10).contains(unit.getPosition());
+                        bool sel = sf::IntRect(event.mouseButton.x-3, event.mouseButton.y-3,6,6).contains(unit.getPosition());
                         if (sel)
                             unit.select();
                         else
@@ -135,11 +136,13 @@ int main()
 
                 // selection rectangle close
                 case sf::Event::MouseButtonReleased:
-                    if (event.mouseButton.button == sf::Mouse::Left)
+                    if ( (event.mouseButton.button == sf::Mouse::Left) &&
+                            bSelFromSelBox )
                     {
-                        bool sel = sf::IntRect(selRectOrg,sf::Vector2i(event.mouseButton.x, event.mouseButton.y)).contains(unit.getPosition());
+                        bool sel = sf::IntRect(selRectOrg,sf::Vector2i(event.mouseButton.x, event.mouseButton.y) - selRectOrg).contains(unit.getPosition());
                         if (sel)
                             unit.select();
+                        bSelFromSelBox = false; 
                     }
                     break;
 
@@ -243,8 +246,13 @@ int main()
                 sf::RectangleShape selBox = sf::RectangleShape( static_cast<sf::Vector2f>(sf::Mouse::getPosition(mainWindow) - selRectOrg)) ;
                 selBox.setPosition(static_cast<sf::Vector2f>(selRectOrg));
                 selBox.setFillColor(sf::Color(100, 150, 100, 150));
-
+                // to tell to button released event we where in selectionbox case
+                bSelFromSelBox = true; 
                 mainWindow.draw( selBox );
+            }
+            else
+            {
+            
             }
 
             // set next update tick
