@@ -4,35 +4,32 @@
 
 #include "../utils/logger.h"
 
-Unit::Unit():
-    m_vPosition()
+Unit::Unit(Component* parent, float xCenterPos, float yCenterPos): GameSprite( parent, xCenterPos, yCenterPos)
 {
-    m_oAnim = AnimatedSprite(ressourceManager.getAnimation("campfire1"));
-    m_oAnim.setLoop(true);
-
+	this->defineAnimations();
+	setState(0);
+    //m_oAnim = AnimatedTexture(ressourceManager.getAnimation("campfire1"));
+    //m_oAnim.setLoop(true);
     m_bSelected = false;
+
  //ctor
 }
-
 Unit::~Unit()
 {
  //dtor
 }
 
-void Unit::Redraw(sf::RenderTarget& window)
-{
-    m_oAnim.draw( window, m_vPosition, 0, 50);
+void Unit::defineAnimations(){
+	int i=0;
+
+	m_animations[0]= AnimatedTexture(ressourceManager.getAnimation("campfire1"));
+	m_animations[0].setLoop(true);
 }
 
-sf::Vector2i& Unit::getPosition()
-{
-    return m_vPosition;
+
+void Unit::updateSpecific(int gameFps) {
 }
 
-void Unit::setPosition(sf::Vector2i position)
-{
-    m_vPosition = position;
-}
 
 void Unit::select()
 {
@@ -48,3 +45,4 @@ void Unit::unSelect()
         m_bSelected = false;
     }
 }
+

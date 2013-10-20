@@ -2,27 +2,27 @@
 #define UNIT_H
 
 #include <SFML/Graphics.hpp>
-#include "AnimatedSprite.h"
-#include "ImagedSprite.h"
+#include "AnimatedTexture.h"
+#include "GameSprite.h"
 
 
-class Unit// : public sf::Drawable, sf::Transformable
+class Unit : public GameSprite
 {
  public:
- Unit();
-  virtual ~Unit();
-  void Redraw(sf::RenderTarget& window);
-  sf::Vector2i& getPosition();
-  void setPosition(sf::Vector2i position);
-  void select();
-  void unSelect();
+	Unit(Component* parent, float xCenterPos, float yCenterPos);
+	virtual ~Unit();
+
+	void defineAnimations();
+
+	void updateSpecific(int gameFps);
+
+	void select();
+	void unSelect();
 
 
  protected:
  private:
-  AnimatedSprite m_oAnim;
-  sf::Vector2i m_vPosition;
-  bool m_bSelected;
+	bool m_bSelected;
 
 };
 
