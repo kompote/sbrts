@@ -120,13 +120,13 @@ int main()
                 case sf::Event::MouseButtonPressed:
                     if (event.mouseButton.button == sf::Mouse::Left)
                     {
-                        selRectOrg.x = event.mouseButton.x;
-                        selRectOrg.y = event.mouseButton.y;
-                        debug("click mouse %d:%d", selRectOrg.x, selRectOrg.y);
+                        selRectOrg.x = event.mouseButton.x + mapPosX;
+                        selRectOrg.y = event.mouseButton.y + mapPosY;
+                        debug("click mouse in map%d:%d", selRectOrg.x + mapPosX, selRectOrg.y + mapPosY);
                         // one shot selection
                         // create a small rect to detect unit inside
                         // arbitrary values
-                        bool sel = sf::IntRect(event.mouseButton.x-3, event.mouseButton.y-3,6,6).contains(unit.getPosition());
+                        bool sel = sf::IntRect(event.mouseButton.x-3 + mapPosX, event.mouseButton.y-3 + mapPosY,6,6).contains(unit.getPosition());
                         if (sel)
                             unit.select();
                         else
@@ -139,7 +139,7 @@ int main()
                     if ( (event.mouseButton.button == sf::Mouse::Left) &&
                             bSelFromSelBox )
                     {
-                        bool sel = sf::IntRect(selRectOrg,sf::Vector2i(event.mouseButton.x, event.mouseButton.y) - selRectOrg).contains(unit.getPosition());
+                        bool sel = sf::IntRect(selRectOrg,sf::Vector2i(event.mouseButton.x + mapPosX, event.mouseButton.y + mapPosY) - selRectOrg).contains(unit.getPosition());
                         if (sel)
                             unit.select();
                         bSelFromSelBox = false; 
@@ -218,6 +218,25 @@ int main()
             // Clear display
             mainWindow.clear(sf::Color(0, 14, 15));
 
+            // draw debug text
+            mainWindow.draw(_DebugFPS);
+            mainWindow.draw(_DebugMEM);
+
+            // render selection rectangle selBox
+            if( sf::Mouse::isButtonPressed( sf::Mouse::Left ) )
+            {
+                sf::RectangleShape selBox = sf::RectangleShape( sf::Vector2f(sf::Mouse::getPosition(mainWindow).x + mapPosX  - selRectOrg.x,
+                                                                sf::Mouse::getPosition(mainWindow).y + mapPosY - selRectOrg.y) );
+                selBox.setPosition(static_cast<sf::Vector2f>(selRectOrg));
+                selBox.setFillColor(sf::Color(100, 150, 100, 150));
+                // to tell to button released event we where in selectionbox case
+                bSelFromSelBox = true; 
+                rt.draw( selBox );
+            }
+            else
+            {
+            
+            }
             // move map on map edge
             if (moveToWest)
                 if (mapPosX>5)
@@ -236,24 +255,6 @@ int main()
             mapSprite.setTextureRect(sf::IntRect(mapPosX, mapPosY, screenW, screenH - HUD_HEIGHT));
 
             mainWindow.draw(mapSprite);
-            // draw debug text
-            mainWindow.draw(_DebugFPS);
-            mainWindow.draw(_DebugMEM);
-
-            // render selection rectangle selBox
-            if( sf::Mouse::isButtonPressed( sf::Mouse::Left ) )
-            {
-                sf::RectangleShape selBox = sf::RectangleShape( static_cast<sf::Vector2f>(sf::Mouse::getPosition(mainWindow) - selRectOrg)) ;
-                selBox.setPosition(static_cast<sf::Vector2f>(selRectOrg));
-                selBox.setFillColor(sf::Color(100, 150, 100, 150));
-                // to tell to button released event we where in selectionbox case
-                bSelFromSelBox = true; 
-                mainWindow.draw( selBox );
-            }
-            else
-            {
-            
-            }
 
             // set next update tick
             next_game_tick += SKIP_TICKS;
