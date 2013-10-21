@@ -221,10 +221,6 @@ int main()
             // Clear display
             mainWindow.clear(sf::Color(0, 14, 15));
 
-            // draw debug text
-            mainWindow.draw(_DebugFPS);
-            mainWindow.draw(_DebugMEM);
-
             // render selection rectangle selBox
             if( sf::Mouse::isButtonPressed( sf::Mouse::Left ) )
             {
@@ -258,6 +254,10 @@ int main()
             mapSprite.setTextureRect(sf::IntRect(mapPosX, mapPosY, screenW, screenH - HUD_HEIGHT));
 
             mainWindow.draw(mapSprite);
+            // draw debug text
+            mainWindow.draw(_DebugFPS);
+            mainWindow.draw(_DebugMEM);
+
 
             // set next update tick
             next_game_tick += SKIP_TICKS;
@@ -283,8 +283,8 @@ int main()
             for (const auto &it : frameTime)
                 tmp += it;
             tmp = tmp/(float)31;
-            //_DebugFPS.setString(sf::String(to_string((int)tmp) + " fps")) ;
-            //_DebugMEM.setString(sf::String(to_string(Tools::getRSS()/1000) + " Mo")) ;
+            _DebugFPS.setString(sf::String(to_string((int)tmp) + " fps")) ;
+            _DebugMEM.setString(sf::String(to_string(Tools::getRSS()/1000) + " Mo")) ;
             frameTime.clear();
             framecount=0;
         }
