@@ -70,7 +70,7 @@ int main()
     // Debug stuff
     // TODO : Utility class
     sf::Font _DebugFont;
-    _DebugFont.loadFromFile("resources/Aero.ttf");
+    _DebugFont.loadFromFile("resources/fonts/Aero.ttf");
     sf::Text _DebugFPS("fps", _DebugFont,12);
     _DebugFPS.setPosition(750.0,5.0);
     sf::Text _DebugMEM("mem", _DebugFont,12);
@@ -84,8 +84,7 @@ int main()
     sf::Sprite mapSprite;
 
     // first unit test
-    Unit unit;
-    unit.setPosition(sf::Vector2i(200,200));
+    Unit unit(NULL, 200,200);
 
     // map texture offscreen
     sf::RenderTexture rt;
@@ -126,7 +125,9 @@ int main()
                         // one shot selection
                         // create a small rect to detect unit inside
                         // arbitrary values
-                        bool sel = sf::IntRect(event.mouseButton.x-3 + mapPosX, event.mouseButton.y-3 + mapPosY,6,6).contains(unit.getPosition());
+
+                        bool sel = sf::IntRect(event.mouseButton.x-3 + mapPosX, event.mouseButton.y-3 + mapPosY,6,6).contains((sf::Vector2i)unit.getPosition());
+
                         if (sel)
                             unit.select();
                         else
@@ -139,7 +140,9 @@ int main()
                     if ( (event.mouseButton.button == sf::Mouse::Left) &&
                             bSelFromSelBox )
                     {
-                        bool sel = sf::IntRect(selRectOrg,sf::Vector2i(event.mouseButton.x + mapPosX, event.mouseButton.y + mapPosY) - selRectOrg).contains(unit.getPosition());
+
+                        bool sel = sf::IntRect(selRectOrg,sf::Vector2i(event.mouseButton.x + mapPosX, event.mouseButton.y + mapPosY) - selRectOrg).contains((sf::Vector2i)unit.getPosition());
+
                         if (sel)
                             unit.select();
                         bSelFromSelBox = false; 
@@ -212,7 +215,7 @@ int main()
             rt.clear(sf::Color(20,20,20));
             theMap.redraw(rt, mapPosX, mapPosY);
             // render unit
-            unit.Redraw(rt);
+            unit.draw(rt,SKIP_TICKS);
             // bug001
             rt.draw(sf::Text("toto",_DebugFont,12)); // if not, bug ??
             // Clear display
@@ -280,8 +283,8 @@ int main()
             for (const auto &it : frameTime)
                 tmp += it;
             tmp = tmp/(float)31;
-            _DebugFPS.setString(sf::String(to_string((int)tmp) + " fps")) ;
-            _DebugMEM.setString(sf::String(to_string(Tools::getRSS()/1000) + " Mo")) ;
+            //_DebugFPS.setString(sf::String(to_string((int)tmp) + " fps")) ;
+            //_DebugMEM.setString(sf::String(to_string(Tools::getRSS()/1000) + " Mo")) ;
             frameTime.clear();
             framecount=0;
         }
