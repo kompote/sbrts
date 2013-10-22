@@ -24,11 +24,11 @@ class RessourceManager
         // map containing the animations already loaded
         std::map<std::string,AnimatedTexture> animations;
         // string containing the path to the ressources
-        std::string ressourcePath = "resources//";
+        std::string ressourcePath;
         // string containing the path to the textures
-        std::string texturePath = "textures//";
+        std::string texturePath;
         // string containing the path to the animations
-        std::string animationPath = "animations//";
+        std::string animationPath;
 };
 
 // this class is a singleton, necessary.

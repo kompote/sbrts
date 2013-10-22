@@ -25,8 +25,8 @@ namespace core{
         protected:
         private:
             
-        enum UnitStatus m_eStatus = IDLE ;
-        Action* m_scheduledAction = NULL;
+        enum UnitStatus m_eStatus;  // TODO make sure it is initialized to IDLE state in the implementation
+        Action* m_scheduledAction;  // TODO make sure it is initialized to NULL in the implementation
         std::pair<float,float> m_destination;
 
         Personality m_personality;

@@ -7,6 +7,9 @@ RessourceManager ressourceManager;
 RessourceManager::RessourceManager ()
 {
     //ctor
+	ressourcePath = "resources//"; // TODO refactor ressourcePath -> resourcePath
+	texturePath = "textures//";
+	animationPath = "animations//";
 }
 
 RessourceManager::~RessourceManager()
