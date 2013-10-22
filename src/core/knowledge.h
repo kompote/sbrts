@@ -3,6 +3,8 @@
 
 #include <string>
 
+#define KNOWLEDGE_MAX_VALUE 100.0
+
 namespace core{
 
 class Knowledge

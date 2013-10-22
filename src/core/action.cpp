@@ -2,7 +2,7 @@
 
 using namespace core;
 
-Action::Action(Personality * personality, std::map<std::string, Knowledge> * knowledges, std::string name): m_sName(name)
+Action::Action(Personality * personality, Knowledges * knowledges, std::string name): m_sName(name)
 {
 
     this->m_personality = personality;
@@ -15,7 +15,26 @@ Action::~Action()
     //dtor
 }
 
-float Action::update_efficiency()
+void Action::update_efficiency()
 {
-    return 0;
+    m_fEfficiency = 0;
+}
+
+float Action::getEfficiency(){
+    
+    return m_fEfficiency;
+    
+}
+
+bool Action::setTarget(Entity * target){
+    
+    m_target = target;
+    return true;
+    
+}
+
+Entity * Action::getTarget(){
+    
+    return m_target;
+    
 }

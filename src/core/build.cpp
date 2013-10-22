@@ -2,14 +2,18 @@
 
 using namespace core;
 
-Build::Build(Personality * personality, std::map<std::string, Knowledge> * knowledges): Action(personality, knowledges, std::string("Build"))
+Build::Build(Personality * personality, Knowledges * knowledges): Action(personality, knowledges, std::string("Build"))
 {
     //ctor
 }
 
-float Build::update_efficiency()
+void Build::update_efficiency()
 {
-    return 0;
+    
+    m_fEfficiency =  (PERSONALITY_COEF*m_personality->getTrait("Strength").m_fValue+
+            KNOWLEDGES_COEF*m_knowledges->getKnowledge("Engineering").m_iLevel) /
+            (PERSONALITY_COEF*TRAIT_MAX_VALUE+KNOWLEDGES_COEF*KNOWLEDGE_MAX_VALUE);
+    
 }
 
 Build::~Build()

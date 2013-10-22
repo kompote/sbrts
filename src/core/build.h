@@ -9,10 +9,10 @@ class Build : public Action
 {
     public:
 
-        Build(Personality * personality, std::map<std::string, Knowledge> * knowledges);
+        Build(Personality * personality, Knowledges * knowledges);
         virtual ~Build();
 
-        float update_efficiency();
+        void update_efficiency();
 
     protected:
     private:

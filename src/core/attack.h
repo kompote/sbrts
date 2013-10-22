@@ -9,10 +9,11 @@ class Attack : public Action
 {
     public:
 
-        Attack(Personality * personality, std::map<std::string, Knowledge> * knowledges);
+        Attack(Personality * personality, Knowledges * knowledges);
         virtual ~Attack();
 
-        float update_efficiency();
+        void update_efficiency();
+        bool setTarget(Entity * target);
 
     protected:
     private:

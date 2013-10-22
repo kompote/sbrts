@@ -2,7 +2,11 @@
 
 using namespace core;
 
-Entity::Entity(std::string type, std::pair<float,float> position): m_sType(type)
+Entity::Entity(std::string type,
+        std::pair<float,float> position,
+        unsigned int id,
+        EntityManager * entityManager,
+        unsigned short int team): m_sType(type), m_uiID(id), m_entityManager(entityManager), m_usiTeam(team)
 {
 
     this->m_position = position;

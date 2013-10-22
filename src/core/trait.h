@@ -3,6 +3,8 @@
 
 #include <string>
 
+#define TRAIT_MAX_VALUE 100.0
+
 namespace core{
 
 class Trait

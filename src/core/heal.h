@@ -9,10 +9,10 @@ class Heal : public Action
 {
     public:
 
-        Heal(Personality * personality, std::map<std::string, Knowledge> * knowledges);
+        Heal(Personality * personality, Knowledges * knowledges);
         virtual ~Heal();
 
-        float update_efficiency();
+        void update_efficiency();
 
     protected:
     private:

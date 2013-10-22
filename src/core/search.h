@@ -9,10 +9,10 @@ class Search : public Action
 {
     public:
 
-        Search(Personality * personality, std::map<std::string, Knowledge> * knowledges);
+        Search(Personality * personality, Knowledges * knowledges);
         virtual ~Search();
 
-        float update_efficiency();
+        void update_efficiency();
 
     protected:
     private:

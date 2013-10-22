@@ -9,10 +9,10 @@ class Repair : public Action
 {
     public:
 
-        Repair(Personality * personality, std::map<std::string, Knowledge> * knowledges);
+        Repair(Personality * personality, Knowledges * knowledges);
         virtual ~Repair();
 
-        float update_efficiency();
+        void update_efficiency();
 
     protected:
     private:

@@ -2,14 +2,18 @@
 
 using namespace core;
 
-Harvest::Harvest(Personality * personality, std::map<std::string, Knowledge> * knowledges): Action(personality, knowledges, std::string("Harvest"))
+Harvest::Harvest(Personality * personality, Knowledges * knowledges): Action(personality, knowledges, std::string("Harvest"))
 {
     //ctor
 }
 
-float Harvest::update_efficiency()
+void Harvest::update_efficiency()
 {
-    return 0;
+    
+    m_fEfficiency = (PERSONALITY_COEF*m_personality->getTrait("Ability").m_fValue+
+            KNOWLEDGES_COEF*m_knowledges->getKnowledge("Farming").m_iLevel) /
+            (PERSONALITY_COEF*TRAIT_MAX_VALUE+KNOWLEDGES_COEF*KNOWLEDGE_MAX_VALUE);
+    
 }
 
 Harvest::~Harvest()

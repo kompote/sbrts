@@ -9,10 +9,10 @@ class Mine : public Action
 {
     public:
 
-        Mine(Personality * personality, std::map<std::string, Knowledge> * knowledges);
+        Mine(Personality * personality, Knowledges * knowledges);
         virtual ~Mine();
 
-        float update_efficiency();
+        void update_efficiency();
 
     protected:
     private:

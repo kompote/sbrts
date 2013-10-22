@@ -2,14 +2,18 @@
 
 using namespace core;
 
-Search::Search(Personality * personality, std::map<std::string, Knowledge> * knowledges): Action(personality, knowledges, std::string("Search"))
+Search::Search(Personality * personality, Knowledges * knowledges): Action(personality, knowledges, std::string("Search"))
 {
     //ctor
 }
 
-float Search::update_efficiency()
+void Search::update_efficiency()
 {
-    return 0;
+    
+    m_fEfficiency =  (PERSONALITY_COEF*m_personality->getTrait("Intelligence").m_fValue+
+            KNOWLEDGES_COEF*m_knowledges->getKnowledge("Research").m_iLevel) /
+            (PERSONALITY_COEF*TRAIT_MAX_VALUE+KNOWLEDGES_COEF*KNOWLEDGE_MAX_VALUE);
+
 }
 
 Search::~Search()
