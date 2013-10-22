@@ -4,11 +4,11 @@
 #include <SFML/Graphics.hpp>
 #include "AnimatedTexture.h"
 
-class RessourceManager
+class ResourceManager
 {
     public:
-        RessourceManager();
-        virtual ~RessourceManager();
+        ResourceManager();
+        virtual ~ResourceManager();
 
         // getTexture, return a reference to the texture which name is textureName
         // each texture works as a singleton: load only one time on demand
@@ -24,7 +24,7 @@ class RessourceManager
         // map containing the animations already loaded
         std::map<std::string,AnimatedTexture> animations;
         // string containing the path to the ressources
-        std::string ressourcePath;
+        std::string resourcePath;
         // string containing the path to the textures
         std::string texturePath;
         // string containing the path to the animations
@@ -32,7 +32,7 @@ class RessourceManager
 };
 
 // this class is a singleton, necessary.
-extern RessourceManager ressourceManager;
+extern ResourceManager resourceManager;
 
 #endif // RESSOURCE_MANAGER_H
 

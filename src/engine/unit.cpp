@@ -8,7 +8,7 @@ Unit::Unit(Component* parent, float xCenterPos, float yCenterPos): GameSprite( p
 {
 	this->defineAnimations();
 	setState(0);
-    //m_oAnim = AnimatedTexture(ressourceManager.getAnimation("campfire1"));
+    //m_oAnim = AnimatedTexture(resourceManager.getAnimation("campfire1"));
     //m_oAnim.setLoop(true);
     m_bSelected = false;
 
@@ -22,7 +22,7 @@ Unit::~Unit()
 void Unit::defineAnimations(){
 	int i=0;
 
-	m_animations[0]= AnimatedTexture(ressourceManager.getAnimation("campfire1"));
+	m_animations[0]= AnimatedTexture(resourceManager.getAnimation("campfire1"));
 	m_animations[0].setLoop(true);
 }
 

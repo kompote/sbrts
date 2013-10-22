@@ -3,28 +3,28 @@
 #include<iostream>
 #include<fstream>
 
-RessourceManager ressourceManager;
-RessourceManager::RessourceManager ()
+ResourceManager resourceManager;
+ResourceManager::ResourceManager ()
 {
     //ctor
-	ressourcePath = "resources//"; // TODO refactor ressourcePath -> resourcePath
+	resourcePath = "resources//";
 	texturePath = "textures//";
 	animationPath = "animations//";
 }
 
-RessourceManager::~RessourceManager()
+ResourceManager::~ResourceManager()
 {
     //dtor
 }
 
 // getTexture, return a reference to the texture which name is textureName
 // each texture works as a singleton: load only one time on demand
-sf::Texture& RessourceManager::getTexture(const std::string textureName )
+sf::Texture& ResourceManager::getTexture(const std::string textureName )
 {
     // if texture is not already loaded
     if( textures.find(textureName) == textures.end() ){
         // load texture and stock it in map
-        textures[textureName].loadFromFile(ressourcePath + texturePath + textureName);
+        textures[textureName].loadFromFile(resourcePath + texturePath + textureName);
     }
     // return reference to texture
     return textures[textureName];
@@ -34,12 +34,12 @@ sf::Texture& RessourceManager::getTexture(const std::string textureName )
 
 // getAnimation, return a reference to the animation which name is animationName
 // each animation works as a singleton: load only one time on demand
-AnimatedTexture& RessourceManager::getAnimation(const std::string animationName)
+AnimatedTexture& ResourceManager::getAnimation(const std::string animationName)
 {
     // if animation not already loaded
     if( animations.find(animationName) == animations.end() ){
         // open the file describing the animation
-        std::ifstream animationFile(ressourcePath + animationPath + animationName);
+        std::ifstream animationFile(resourcePath + animationPath + animationName);
 
         if(animationFile.is_open()){
             std::string animationTextureName;
