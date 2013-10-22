@@ -62,7 +62,7 @@ in Execution working dir set "path/to/project/sbrts/src", this will tell Code::B
 
 - You can now build and run the project using Code::Blocks, congrats !
 
--- Generate the doc
+-- Generating the documentation
 
-To generate the doc, you need to install 'doxygen' and 'graphviz' packages.
-Then, simply do 'doxygen Doxyfile' in the repo's directory. This will generate the documentation in HTML in directory 'doc/html'
+To generate the documentation just type 'make doc' in your build directory (required dependencies are 'doxygen' and 'graphviz' packages).
+This will generate the documentation in the directory 'docs/html'.

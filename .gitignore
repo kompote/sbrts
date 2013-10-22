@@ -14,7 +14,7 @@
 
 # executable
 sbrts
-*.cmake
+# *.cmake
 CMakeCache.txt
 CMakeFiles
 

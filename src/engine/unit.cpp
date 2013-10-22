@@ -1,5 +1,5 @@
 #include "unit.h"
-#include "RessourceManager.h"
+#include "ResourceManager.h"
 #include <iostream>
 
 #include "../utils/logger.h"

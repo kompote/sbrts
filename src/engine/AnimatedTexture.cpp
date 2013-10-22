@@ -1,5 +1,5 @@
 #include "AnimatedTexture.h"
-#include "RessourceManager.h"
+#include "ResourceManager.h"
 #include <iostream>
 
 AnimatedTexture::AnimatedTexture()
