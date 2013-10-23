@@ -151,7 +151,7 @@ int main()
 
                 // move map on map edge
                 case sf::Event::MouseMoved:
-                    if (event.mouseMove.x < 20)
+                    if (event.mouseMove.x < MAP_EDGE_MOUSE_GAP)
                         moveToWest = true;
                     else
                         moveToWest = false;
@@ -159,7 +159,7 @@ int main()
                         moveToEast = true;
                     else
                         moveToEast = false;
-                    if (event.mouseMove.y < 20)
+                    if (event.mouseMove.y < MAP_EDGE_MOUSE_GAP)
                         moveToNorth = true;
                     else
                         moveToNorth = false;
@@ -238,16 +238,16 @@ int main()
             }
             // move map on map edge
             if (moveToWest)
-                if (mapPosX>5)
+                if (mapPosX>=5)
                     mapPosX -= 5;
             if (moveToEast)
-                if (mapPosX<screenW-5)
+                if (mapPosX<=screenW-5)
                     mapPosX += 5;
             if (moveToNorth)
-                if (mapPosY>5)
+                if (mapPosY>=5)
                     mapPosY -= 5;
             if (moveToSouth)
-                if (mapPosY<screenH-5)
+                if (mapPosY<=screenH-5)
                     mapPosY += 5;
             // dram map, only displayable part
             mapSprite.setTexture(rt.getTexture());
