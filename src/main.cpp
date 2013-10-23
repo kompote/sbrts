@@ -217,7 +217,7 @@ int main()
             // render unit
             unit.draw(rt,SKIP_TICKS);
             // bug001
-            rt.draw(sf::Text("toto",_DebugFont,12)); // if not, bug ??
+          //  rt.draw(sf::Text("toto",_DebugFont,12)); // if not, bug ??
             // Clear display
             mainWindow.clear(sf::Color(0, 14, 15));
 
