@@ -7,6 +7,9 @@
 #include "utils/logger.h"
 #include "utils/tools.h"
 
+// TEST
+#include "engine/map/concretemap.h"
+
 #include <SFML/Graphics.hpp>
 
 const int TICKS_PER_SECOND = 30;  // game speed
@@ -24,6 +27,8 @@ const int MAP_EDGE_MOUSE_GAP = 20;
 sf::RenderWindow mainWindow(sf::VideoMode(800, 600), "SBRTS");    // global main window
 using namespace engine;
 AdvMap theMap;
+
+ConcreteMap cm;
 
 // ----------------------------------------------------------------- toggleFullscreen
 bool bfullscreen = false;
@@ -213,9 +218,10 @@ int main()
         {
             // render map
             rt.clear(sf::Color(20,20,20));
-            theMap.redraw(rt, mapPosX, mapPosY);
+//            theMap.redraw(rt, mapPosX, mapPosY);
+cm.draw(rt);
             // render unit
-            unit.draw(rt,SKIP_TICKS);
+//            unit.draw(rt,SKIP_TICKS);
             // bug001
             rt.draw(sf::Text("toto",_DebugFont,12)); // if not, bug ??
             // Clear display
