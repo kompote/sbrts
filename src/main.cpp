@@ -26,7 +26,7 @@ const int MAP_EDGE_MOUSE_GAP = 20;
 // global vars
 sf::RenderWindow mainWindow(sf::VideoMode(800, 600), "SBRTS");    // global main window
 using namespace engine;
-AdvMap theMap;
+//AdvMap theMap;
 
 ConcreteMap cm;
 
@@ -44,7 +44,7 @@ void toggleFullscreen() {
         screenH = 600;
     }
     mainWindow.create(sf::VideoMode(screenW, screenH),"SBRTS");
-    theMap.setViewSize(screenW, screenH);
+    //theMap.setViewSize(screenW, screenH);
     debug("Switching screen to %d:%d",screenW,screenH);
     bfullscreen = !bfullscreen;
 }
@@ -82,9 +82,9 @@ int main()
     _DebugMEM.setPosition(750.0,20.0);
 
     // load the map
-    theMap.loadMap("map01");
+    //theMap.loadMap("map01");
     // set the map view size
-    theMap.setViewSize(screenW, screenH);
+    //theMap.setViewSize(screenW, screenH);
     // set the displayable map sprite
     sf::Sprite mapSprite;
 
@@ -156,7 +156,7 @@ int main()
 
                 // move map on map edge
                 case sf::Event::MouseMoved:
-                    if (event.mouseMove.x < 20)
+                    if (event.mouseMove.x < MAP_EDGE_MOUSE_GAP)
                         moveToWest = true;
                     else
                         moveToWest = false;
@@ -164,7 +164,7 @@ int main()
                         moveToEast = true;
                     else
                         moveToEast = false;
-                    if (event.mouseMove.y < 20)
+                    if (event.mouseMove.y < MAP_EDGE_MOUSE_GAP)
                         moveToNorth = true;
                     else
                         moveToNorth = false;
@@ -219,11 +219,11 @@ int main()
             // render map
             rt.clear(sf::Color(20,20,20));
 //            theMap.redraw(rt, mapPosX, mapPosY);
-cm.draw(rt);
+            cm.draw(rt);
             // render unit
 //            unit.draw(rt,SKIP_TICKS);
             // bug001
-            rt.draw(sf::Text("toto",_DebugFont,12)); // if not, bug ??
+            //rt.draw(sf::Text("toto",_DebugFont,12)); // if not, bug ??
             // Clear display
             mainWindow.clear(sf::Color(0, 14, 15));
 
@@ -244,16 +244,16 @@ cm.draw(rt);
             }
             // move map on map edge
             if (moveToWest)
-                if (mapPosX>5)
+                if (mapPosX>=5)
                     mapPosX -= 5;
             if (moveToEast)
-                if (mapPosX<screenW-5)
+                if (mapPosX<=screenW-5)
                     mapPosX += 5;
             if (moveToNorth)
-                if (mapPosY>5)
+                if (mapPosY>=5)
                     mapPosY -= 5;
             if (moveToSouth)
-                if (mapPosY<screenH-5)
+                if (mapPosY<=screenH-5)
                     mapPosY += 5;
             // dram map, only displayable part
             mapSprite.setTexture(rt.getTexture());
