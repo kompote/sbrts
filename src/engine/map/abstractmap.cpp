@@ -49,6 +49,7 @@ void AbstractMap::createTestMap()
 AbstractMap::AbstractMap()
 {
     createTestMap();
+    debug("Map size %d (%d octets)", polyList.size(), polyList.size() * sizeof(_polyCase));
     /*
     int i = 0;
     for(i = 0; i < 100; i++)
