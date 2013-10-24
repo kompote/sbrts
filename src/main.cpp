@@ -127,6 +127,7 @@ int main()
                         selRectOrg.x = event.mouseButton.x + mapPosX;
                         selRectOrg.y = event.mouseButton.y + mapPosY;
                         debug("click mouse in map%d:%d", selRectOrg.x + mapPosX, selRectOrg.y + mapPosY);
+                        cm.containsTest(selRectOrg.x, selRectOrg.y);
                         // one shot selection
                         // create a small rect to detect unit inside
                         // arbitrary values

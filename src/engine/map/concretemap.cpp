@@ -52,3 +52,12 @@ void ConcreteMap::drawTest(sf::RenderTarget& target)
         target.draw(m_oPShape);
     }
 }
+
+void ConcreteMap::containsTest(unsigned int x, unsigned int y)
+{
+    for(const auto& it: m_oAbstractMap.polyList)
+    {
+        if(m_oAbstractMap.contains(it, {x,y}))
+            DBG_WARN(" CONTAINS ");
+    } 
+}

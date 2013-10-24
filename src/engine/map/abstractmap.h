@@ -37,5 +37,6 @@ class AbstractMap
         AbstractMap();
         ~AbstractMap();
         void createTestMap();
+        bool contains(_polyCase pCase, _coord coord);
 };
 #endif

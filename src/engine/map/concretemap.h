@@ -18,6 +18,7 @@ class ConcreteMap
 
         void draw(sf::RenderTarget& target);
         void drawTest(sf::RenderTarget& target);
+        void containsTest(unsigned int x, unsigned int y);
 
 };
 #endif

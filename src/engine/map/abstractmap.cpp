@@ -49,6 +49,7 @@ void AbstractMap::createTestMap()
 AbstractMap::AbstractMap()
 {
     createTestMap();
+    /*
     int i = 0;
     for(i = 0; i < 100; i++)
         m_SMapCaseList.push_back(_mapCase());
@@ -66,9 +67,29 @@ AbstractMap::AbstractMap()
              m_SMapCaseList[i].walkable = false; 
         else
               m_SMapCaseList[i].walkable = true; 
-i++;
+        i++;
       }
+      */
 }
 
 AbstractMap::~AbstractMap()
 {}
+
+bool AbstractMap::contains(_polyCase pCase, _coord coord)
+{
+    bool isIn = false;
+    if ( (coord.x >= pCase.topLeft.x) &&
+            (coord.x < pCase.topRight.x) &&
+            (coord.x >= pCase.botLeft.x) &&
+            (coord.x < pCase.botRight.x) &&
+
+            (coord.y >= pCase.topLeft.y) &&
+            (coord.y >= pCase.topRight.y) &&
+            (coord.y < pCase.botLeft.y) &&
+            (coord.y < pCase.botRight.y) )
+        isIn = true;
+
+    return isIn;
+
+}
+
