@@ -32,3 +32,10 @@ void Entity::setPosition(std::pair<float,float> position){
     this->m_position = position;
 
 }
+
+void Entity::pushEvent(EntityEvent entityEvent)
+{
+    
+    m_entityEvents.push_back(entityEvent);
+    
+}

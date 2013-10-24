@@ -17,17 +17,17 @@ EntityManager::EntityManager(const EntityManager& orig)
 {
 }
 
-bool EntityManager::subscribe(unsigned int EntityID, char eventName[])
+void EntityManager::subscribe(unsigned int EntityID, char eventName[])
 {
     
 }
 
-bool EntityManager::unsubscribe(unsigned int EntityID, char eventName[])
+void EntityManager::unsubscribe(unsigned int EntityID, char eventName[])
 {
     
 }
 
-unsigned int EntityManager::schedule(unsigned int entityID, std::string actionName)
+bool EntityManager::schedule(unsigned int entityID, std::string actionName)
 {
     
 }

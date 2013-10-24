@@ -24,6 +24,9 @@ bool sortActionsByEfficiency(Action * a, Action * b){
 UnitAI::UnitAI(std::pair<float,float> position, std::map<std::string, Trait> traits, unsigned int id, EntityManager * entityManager): Entity(std::string("Unit"), position, id, entityManager), m_personality(traits)
 {
 
+    m_eStatus = IDLE;
+    m_scheduledAction = NULL;
+    
     m_actions.insert(pair<string,Action>("Attack", Attack(&m_personality,&m_knowledges)));
     m_actions.insert(pair<string,Action>("Build", Build(&m_personality,&m_knowledges)));
     m_actions.insert(pair<string,Action>("Harvest", Harvest(&m_personality,&m_knowledges)));
