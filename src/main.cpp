@@ -219,7 +219,7 @@ int main()
             // render map
             rt.clear(sf::Color(20,20,20));
 //            theMap.redraw(rt, mapPosX, mapPosY);
-            cm.draw(rt);
+            cm.drawTest(rt);
             // render unit
 //            unit.draw(rt,SKIP_TICKS);
             // bug001

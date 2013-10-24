@@ -9,6 +9,7 @@ class ConcreteMap
         unsigned int m_uiMapH;
         unsigned int m_uiMapW;
         sf::RectangleShape m_oRShape;
+        sf::ConvexShape m_oPShape;
         AbstractMap m_oAbstractMap;
     protected:
     public:
@@ -16,6 +17,7 @@ class ConcreteMap
         ~ConcreteMap();
 
         void draw(sf::RenderTarget& target);
+        void drawTest(sf::RenderTarget& target);
 
 };
 #endif
