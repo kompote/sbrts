@@ -17,7 +17,7 @@
 do { \
  char buf[512]; \
  snprintf(buf, 512, format, ## __VA_ARGS__); \
- DBG_WARN(buf); \
+ DBG_INFO(buf); \
 } while(false)
 
  //Log.print(buf); 

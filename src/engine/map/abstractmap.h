@@ -32,7 +32,7 @@ class AbstractMap
     public:
         _caseSize cs;
         std::vector<_mapCase> m_SMapCaseList;
-        std::vector<_polyCase> polyList;
+        std::vector<std::vector<_polyCase> > polyList;
 
         AbstractMap();
         ~AbstractMap();

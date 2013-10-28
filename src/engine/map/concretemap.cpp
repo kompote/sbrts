@@ -35,29 +35,58 @@ void ConcreteMap::draw(sf::RenderTarget& target)
         }
 }
 
-void ConcreteMap::drawTest(sf::RenderTarget& target)
+// ----------------------------------------------------------------- setViewSize
+void ConcreteMap::setViewSize(unsigned int viewX, unsigned int viewY)
 {
-    int i = 20;
-    for(const auto& it: m_oAbstractMap.polyList)
+    m_uiViewWidth = viewX;
+    m_uiViewHeight = viewY;
+}
+
+void ConcreteMap::drawAbstract(sf::RenderTarget& target, unsigned int fromX, unsigned int fromY)
+{
+    // compute draw needin size
+    unsigned int maxW = ((fromX + m_uiViewWidth)/30) + 2;
+    unsigned int maxH = ((fromY + m_uiViewHeight)/30) + 2;
+    int startX = (fromX / 30) - 2;
+    int startY = (fromY / 30 ) - 2;
+
+    // limit to map size
+    if ( maxH > m_oAbstractMap.polyList.size() )
+        maxH = m_uiViewHeight;
+    if ( maxW > m_oAbstractMap.polyList[0].size() )
+        maxW = m_uiViewWidth;
+    if (startX < 0)
+        startX = 0;
+    if (startY < 0)
+        startY = 0;
+
+    for(unsigned int i = startY; i < maxH; i++)
     {
-        m_oPShape.setPoint(0,sf::Vector2f(it.topLeft.x, it.topLeft.y));
-        m_oPShape.setPoint(1,sf::Vector2f(it.botLeft.x, it.botLeft.y));
-        m_oPShape.setPoint(2,sf::Vector2f(it.botRight.x, it.botRight.y));
-        m_oPShape.setPoint(3,sf::Vector2f(it.topRight.x, it.topRight.y));
-            if(!it.walkable)
+        for(unsigned int j = startX; j < maxW; j++)
+        {
+            m_oPShape.setPoint(0,sf::Vector2f(m_oAbstractMap.polyList[i][j].topLeft.x, m_oAbstractMap.polyList[i][j].topLeft.y));
+            m_oPShape.setPoint(1,sf::Vector2f(m_oAbstractMap.polyList[i][j].botLeft.x, m_oAbstractMap.polyList[i][j].botLeft.y));
+            m_oPShape.setPoint(2,sf::Vector2f(m_oAbstractMap.polyList[i][j].botRight.x, m_oAbstractMap.polyList[i][j].botRight.y));
+            m_oPShape.setPoint(3,sf::Vector2f(m_oAbstractMap.polyList[i][j].topRight.x, m_oAbstractMap.polyList[i][j].topRight.y));
+            if(!m_oAbstractMap.polyList[i][j].walkable)
                 m_oPShape.setFillColor(sf::Color(120,120,120,255));
             else
                 m_oPShape.setFillColor(sf::Color(250,250,250,200));
 
-        target.draw(m_oPShape);
+            target.draw(m_oPShape);
+        }
     }
 }
 
 void ConcreteMap::containsTest(unsigned int x, unsigned int y)
 {
-    for(const auto& it: m_oAbstractMap.polyList)
+    
+    for(const auto& itY: m_oAbstractMap.polyList)
     {
+        for(const auto& it: itY)
+        {
         if(m_oAbstractMap.contains(it, {x,y}))
             DBG_WARN(" CONTAINS ");
+        }
     } 
 }
